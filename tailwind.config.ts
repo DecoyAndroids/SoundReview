@@ -35,6 +35,21 @@ export default {
         "ubuntu-mono": ["var(--font-ubuntu-mono)", ...fontFamily.mono],
         "ubuntu-sans": ["var(--font-ubuntu-sans)", ...fontFamily.sans],
       },
+      colors: {
+
+        blackamber: "rgb(var(--blackamber) / <alpha-value>)",
+        blackbrown: "rgb(var(--blackbrown) / <alpha-value>)",
+        cursedblack: "rgb(var(--cursedblack) / <alpha-value>)",
+        anthracitegrey: "rgb(var(--anthracitegrey) / <alpha-value>)",
+        green: "rgb(var(--green) / <alpha-value>)",
+        yellow: "rgb(var(--yellow) / <alpha-value>)",
+        red: "rgb(var(--red) / <alpha-value>)",
+        white: "rgb(var(--white) / <alpha-value>)",
+
+        text: "rgb(var(--text) / <alpha-value>)",
+        sub: "rgb(var(--sub) / <alpha-value>)",
+        "sub-secondary": "rgb(var(--sub-secondary) / <alpha-value>)",
+      },
       borderRadius: {
         2: "0.125rem",
         4: "0.25rem",
