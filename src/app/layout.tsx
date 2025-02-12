@@ -1,7 +1,14 @@
-import "axios/styles/globals.css";
+'client-only'
+import "axios/styles/globals.scss";
 
+import { Ubuntu, Ubuntu_Mono, Ubuntu_Sans } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
+
+const ubuntu = Ubuntu({subsets:['cyrillic'], weight:['300','400','500','700'], variable: '--font-ubuntu',})
+const ubuntuMono = Ubuntu_Mono({subsets:['cyrillic'], weight:['400','700'], variable: '--font-ubuntu-mono',})
+const ubuntuSans = Ubuntu_Sans({subsets:['cyrillic'], weight:['300','400','500','700'], variable: '--font-ubuntu-sans',})
+
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -13,8 +20,9 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
+    <html lang="en" className={`${ubuntu.variable} ${ubuntuMono.variable} ${ubuntuSans.variable}`}>
       <body>{children}</body>
+      
     </html>
   );
 }

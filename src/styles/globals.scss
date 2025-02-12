@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+    --font-ubuntu: var(--font-ubuntu);
+    --font-ubuntu-mono: var(--font-ubuntu-mono);
+    --font-ubuntu-sans: var(--font-ubuntu-sans);
+}
