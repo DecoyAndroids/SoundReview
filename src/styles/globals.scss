@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+    --blackamber: 11,11,11;
+    --blackbrown: 33,34,38;
+    --cursedblack: 18,18,18;
+    --anthracitegrey: 41,46,48;
+    --green: 117,187,92;
+    --yellow: 206,213,57;
+    --red: 223,52,48;
+    --white: 226,232,240;
+
+    --text: 226,232,240;
+    --sub: 146,147,149;
+    --sub-secondary: 106,107,109;
+
+    --font-ubuntu: var(--font-ubuntu);
+    --font-ubuntu-mono: var(--font-ubuntu-mono);
+    --font-ubuntu-sans: var(--font-ubuntu-sans);
+}
