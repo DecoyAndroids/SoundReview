@@ -4,6 +4,8 @@ import "axios/styles/globals.scss";
 import { Ubuntu, Ubuntu_Mono, Ubuntu_Sans } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 
 const ubuntu = Ubuntu({subsets:['cyrillic'], weight:['300','400','500','700'], variable: '--font-ubuntu',})
 const ubuntuMono = Ubuntu_Mono({subsets:['cyrillic'], weight:['400','700'], variable: '--font-ubuntu-mono',})
@@ -21,7 +23,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${ubuntu.variable} ${ubuntuMono.variable} ${ubuntuSans.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SpeedInsights/>
+        <Analytics/>
+        {children}
+      </body>
       
     </html>
   );
