@@ -6,6 +6,7 @@ import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
+import { Sidebar } from "axios/components/sidebar/sidebar";
 
 const ubuntu = Ubuntu({subsets:['cyrillic'], weight:['300','400','500','700'], variable: '--font-ubuntu',})
 const ubuntuMono = Ubuntu_Mono({subsets:['cyrillic'], weight:['400','700'], variable: '--font-ubuntu-mono',})
@@ -24,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${ubuntu.variable} ${ubuntuMono.variable} ${ubuntuSans.variable}`}>
       <body>
+        <Sidebar/>
         <SpeedInsights/>
         <Analytics/>
         {children}

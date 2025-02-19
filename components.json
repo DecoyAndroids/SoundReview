@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "src/styles/globals.scss",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "axios/components",
+    "utils": "axios/lib/utils",
+    "ui": "axios/components/ui",
+    "lib": "axios/lib",
+    "hooks": "axios/hooks"
+  },
+  "iconLibrary": "lucide"
+}

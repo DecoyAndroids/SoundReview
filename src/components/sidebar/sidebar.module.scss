@@ -1,0 +1,21 @@
+.Sidebar{
+    height: calc(100vh - 30px);
+    width: 15.2%;
+    margin: 15px 0px 15px 15px;
+    
+    :first-child{
+        background-color: rgb(var(--blackbrown));
+        margin:auto;
+        height: fit-content;
+        text-align: center;
+        border-radius: 9px;
+        word-spacing: 9999pt;
+        line-height: 34px;
+        font-weight: bold;
+        padding: 15px;
+        
+    }
+    :last-child{
+        background-color: rgb(var(--blackbrown));
+    }
+}
