@@ -24,7 +24,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${ubuntu.variable} ${ubuntuMono.variable} ${ubuntuSans.variable}`}>
-      <body>
+      <body className="font-ubuntu">
         <Sidebar/>
         <SpeedInsights/>
         <Analytics/>
