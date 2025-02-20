@@ -1,21 +1,49 @@
 .Sidebar{
     height: calc(100vh - 30px);
-    width: 15.2%;
+    position: sticky;
+    top:15px;
+    width: 12.2%;
     margin: 15px 0px 15px 15px;
-    
     :first-child{
-        background-color: rgb(var(--blackbrown));
-        margin:auto;
-        height: fit-content;
-        text-align: center;
-        border-radius: 9px;
-        word-spacing: 9999pt;
         line-height: 34px;
-        font-weight: bold;
-        padding: 15px;
-        
+        background-color: rgb(var(--blackbrown));
+        :first-child{
+            padding: 9px 0px 13px 0px;
+            height: fit-content;
+            :first-child{
+                font-weight: bold;
+                padding: 0px;
+            }
+        }
     }
     :last-child{
+        
         background-color: rgb(var(--blackbrown));
     }
+
+    :not(.Sidebar,.Avatar){
+        border-radius: 9px;
+        min-width: fit-content;
+        word-spacing: 9999px;
+        text-align: center;
+    }
+}
+
+.HrefContainer{
+    background-color: rgb(var(--blackbrown));
+    border-radius: 9px !important;
+    display: flex;
+    flex-direction: column;
+    font-size: 32px;
+    font-weight: lighter;
+    row-gap: 4;
+
+}
+.Avatar{
+    height: 78px;
+    width: 78px;
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 50%;
 }
