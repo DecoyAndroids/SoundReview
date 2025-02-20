@@ -1,0 +1,28 @@
+.newsBlock {
+    background-color: rgb(var(--blackamber));
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    justify-content: flex-start; 
+}
+
+.newsBlockImage {
+    background: rgb(150, 150, 211);
+    border-radius: 9px 9px 0px 0px;
+    display: flex;
+    text-align: left;
+    color: white;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-end;
+}
+.rightArrow{
+    transform: scaleX(-1)
+}
+.topNewsBlockText{
+    margin-left: 6px;
+}
+.downNewsBlockText{
+    margin-left: 6px;
+}
