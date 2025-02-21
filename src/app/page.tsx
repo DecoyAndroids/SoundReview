@@ -1,5 +1,3 @@
-import { SearchInput } from "axios/components/ui/SearchInput/searchInput";
-import Image from "next/image";
 import {MainContentHolder} from "axios/components/mainContentHolder/mainContentHolder";
 
 
