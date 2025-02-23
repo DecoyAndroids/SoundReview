@@ -31,7 +31,7 @@
 
 .HrefContainer{
     background-color: rgb(var(--blackbrown));
-    border-radius: 9px !important;
+    border-radius: 9px;
     display: flex;
     flex-direction: column;
     font-size: 32px;
@@ -39,11 +39,30 @@
     row-gap: 4;
 
 }
-.Avatar{
-    height: 78px;
-    width: 78px;
-    aspect-ratio: 1/1;
+.ProfileContainer {
+    overflow: hidden;
     display: flex;
-    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.ProfileBlock {
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    border-radius: 12px;
+    max-width: 100%;
+}
+
+.Avatar {
+    width: clamp(50px, 4vw, 120px);
+    height: clamp(50px, 4vw, 120px);
     border-radius: 50%;
+    object-fit: cover;
+}
+
+.UserName {
+    padding-left: 5px;
+    font-size: clamp(14px, 1.37vw, 28px);
+    white-space: nowrap;
+    color: white;
 }

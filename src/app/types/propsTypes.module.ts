@@ -15,3 +15,14 @@ export type NewReleaseBlockData = {
 export type NewReleasesBlockProps = {
     NewReleaseBlockData : Array<NewReleaseBlockData>
 }
+
+export type newsBlockProps = {
+    newsBlockData: Array<newsBlockData>,
+}
+
+export type newsBlockData = {
+    articleCover: StaticImageData,
+    title: String,
+    author: String,
+} 
+
