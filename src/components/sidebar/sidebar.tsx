@@ -8,13 +8,13 @@ import userAvatarSrc from '../../../public/userAvatar.jpg'
 export const Sidebar = () => {
     return(
         <div className={`flex flex-col h-screen ${styles.Sidebar}`}> 
-                <Link href='/' className="rounded-[9px]">
+                <Link href='/' className="rounded-[9px] min-w-fit">
                     <div className="rounded-[9px]">
-                        <h3>ПРОСТО УСЛЫШЬ</h3>
+                        <h3 className="text-[30px]">ПРОСТО УСЛЫШЬ</h3>
                     </div>
                 </Link>
                 <div className={`mt-[15px] ${styles.HrefContainer}`}>
-                        <Link href='/' className="pt-[22px] pb-[18px]">
+                        <Link href='/' className="pt-[12px] pb-[6px]">
                         <h4 className="hover:text-28">Главная</h4>
                         </Link>
                     <Separator className= {`w-[calc(100%-40px)] m-auto`}/>
@@ -26,8 +26,8 @@ export const Sidebar = () => {
                             <h4 className="hover:text-28">Лучшее</h4>
                         </Link>
                     <Separator className= {`w-[calc(100%-40px)] m-auto`}/>
-                        <Link href='/playlists' className="pt-[15px] pb-[15px]">
-                        <h4 className="hover:text-28">Подборки</h4>
+                        <Link href='/playlists' className="pt-[15px] pb-[20px]">
+                        <h4 className="hover:text-28 ">Подборки</h4>
                         </Link>
                 </div>
 

@@ -1,4 +1,4 @@
-import * as types from "../types/propsTypes.module"
+import type {newsBlockData} from "../types/propsTypes.module"
 import Metallica from "../../../public/newsBlockCover/Metallica.jpg"
 import MOREGENSHTERN from "../../../public/newsBlockCover/MORGENSHTERN.jpg"
 import noizeMC from "../../../public/newsBlockCover/noizeMC.jpg"
@@ -9,7 +9,7 @@ import Drake from "../../../public/newsBlockCover/Drake.jpg"
 import eminem from "../../../public/newsBlockCover/eminem.jpg"
 import radiohead from "../../../public/newsBlockCover/radiohead.jpg"
 
-export const newsBlockData:Array<types.newsBlockData> = [
+export const newsBlocksData:newsBlockData[] = [
 {
     articleCover: Metallica,
     title: "Metallica анонсировала новый альбом и мировой тур!",
