@@ -8,9 +8,9 @@ import userAvatarSrc from '../../../public/userAvatar.jpg'
 export const Sidebar = () => {
     return(
         <div className={`flex flex-col h-screen ${styles.Sidebar}`}> 
-                <Link href='/' className="rounded-[9px]">
+                <Link href='/' className="rounded-[9px] min-w-fit">
                     <div className="rounded-[9px]">
-                        <h3>ПРОСТО УСЛЫШЬ</h3>
+                        <h3 className="text-[30px]">ПРОСТО УСЛЫШЬ</h3>
                     </div>
                 </Link>
                 <div className={`mt-[15px] ${styles.HrefContainer}`}>
@@ -31,9 +31,9 @@ export const Sidebar = () => {
                         </Link>
                 </div>
 
-                <Link href='/profile' className="flex mt-auto rounded-[9px]">                   
-                        <Image src={userAvatarSrc} alt='Avatar' className={`mt-[6px] mb-[7px] ml-[9px] mr-[4px]  ${styles.Avatar}`}/>
-                        <h3 className="text-[32px]">Станислав</h3>
+                <Link href='/profile' className="flex mt-auto rounded-[9px] min-w-fit">                   
+                        <Image src={userAvatarSrc} alt='Avatar' className={`mt-[6px] mb-[7px] ml-[9px]  ${styles.Avatar}`}/>
+                        <p className="m-auto mt-[2px] text-[1.2vw] font-medium">Станислав</p>
                 </Link>
         </div>
     )
