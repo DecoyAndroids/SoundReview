@@ -2,7 +2,6 @@
 import "axios/styles/globals.scss";
 
 import { Ubuntu, Ubuntu_Mono, Ubuntu_Sans } from "next/font/google";
-import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"

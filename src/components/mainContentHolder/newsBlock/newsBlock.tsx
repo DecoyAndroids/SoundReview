@@ -50,5 +50,5 @@ export const NewsBlock: React.FC<newsBlockProps> = (props) => {
           <Image src={ArrowSrc} alt="right arrow from news block" width={60} className={styles.rightArrow}/>
         </button>
     </div>
-    );
+  );
 };
