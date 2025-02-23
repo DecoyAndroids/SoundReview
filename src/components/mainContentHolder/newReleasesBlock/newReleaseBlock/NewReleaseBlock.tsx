@@ -1,6 +1,7 @@
 import styles from './NewReleaseBlock.module.scss'
 import type { NewReleaseBlockProps } from "axios/app/types/propsTypes.module"
 import { Separator } from "axios/components/ui/separator"
+import { wrap } from 'module'
 import Image from "next/image"
 import Link from 'next/link'
 
@@ -16,9 +17,9 @@ export const NewReleaseBlock:React.FC<NewReleaseBlockProps> = (props) => {
         return `rgb(${red}, ${green}, 0)`;
       };
     return (
-        <div>
+        <div className={`${styles.NewReleaseCard}`}>
             <Link href='/ablum' className=''>
-                <Image src={NewReleaseBlockData.coverSrc} alt='cover of album' style={{width:`13vw`}}/>
+                <Image src={NewReleaseBlockData.coverSrc} priority={true} placeholder="blur" className={`${styles.CoverAlbum}`} alt='cover of album' style={{width:`13vw` , aspectRatio : 1/1, flexWrap: `wrap`}}/>
             </Link>
             <h3 className={`text-[24px] mt-[6px] mb-[0px] font-normal ${styles.NameBand}`}>{NewReleaseBlockData.BandName}</h3>
             <p className={`mt-[-6px] leading-[23px] font-light text-[20px]  ${styles.NameAlbum}`} style={{fontWeight: 300}}>{NewReleaseBlockData.AlbumName}</p>
