@@ -1,14 +1,10 @@
-import { SearchInput } from "axios/components/ui/SearchInput/searchInput";
-import Image from "next/image";
+import {MainContentHolder} from "axios/components/mainContentHolder/mainContentHolder";
 
 
 export default function HomePage() {
   return (
-    <main className="flex grow gap-3 mt-[15px] mr-[15px] ml-[15px] mr-[0px] font-ubuntu flex-col items-center text-white">
-      
-      <SearchInput/>
-      <button>Кнопка</button>
-      <div className="h-[110vh]">f,fj,f</div>
+    <main className="flex grow mr-[15px] ml-[15px] mt-[15px] gap-3 min-h-screen font-ubuntu flex-col items-center justify-center text-white">
+      <MainContentHolder/>
     </main>
   );
 }

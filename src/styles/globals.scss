@@ -88,42 +88,42 @@ body{
   display: flex;
   color:rgb(var(--text));
 }
-h1{
+:where(h1){
   font-size: 48pt;
   word-spacing: -1.2%;
   height: 48pt;
 }
-h2{
+:where(h2){
   font-size: 30pt;
   word-spacing: -0.75%;
   height: 36pt;
 }
-h3{
+:where(h3){
   font-size: 24pt;
   word-spacing: -0.6%;
   height: 32pt;
 }
-h4{
+:where(h4){
   font-size: 20pt;
   word-spacing: -0.5%;
   height: 28pt;
 }
-lead{
+:where(lead){
   font-size: 20pt;
   height: 20pt;
   font-weight: 400;
 }
-large{
+:where(large){
   font-size: 18pt;
   height: 28pt;
   font-weight: 500;
 }
-p{
+:where(p){
   font-size: 16pt;
   height: 28pt;
   font-weight: 400;
 }
-blockquote{
+:where(blockquote){
   font-size: 16pt;
   height: 24pt;
   font-weight: 400;
