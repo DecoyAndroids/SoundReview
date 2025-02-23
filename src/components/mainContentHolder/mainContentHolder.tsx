@@ -9,7 +9,7 @@ export const MainContentHolder: React.FC = () => {
     return (
         <div className={`grow w-[100%] ${styles.MainContentHolder}`}>
         <SearchInput/>
-        <NewsBlock newsBlockData={NewsBlockData.newsBlockData}/>
+        <NewsBlock newsBlockData={NewsBlockData.newsBlocksData}/>
         <NewReleasesBlock NewReleaseBlockData={NewReleasesData.Data}/>
         </div>
     );

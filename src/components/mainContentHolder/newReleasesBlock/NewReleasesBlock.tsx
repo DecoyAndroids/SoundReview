@@ -1,18 +1,10 @@
 import { Separator } from "axios/components/ui/separator"
 import { NewReleaseBlock } from "./newReleaseBlock/NewReleaseBlock"
-import albumCover from '../../../../public/DDT_cover_album.png'
-import * as types from '../../.././app/types/propsTypes.module'
+import type {NewReleasesBlockProps} from '../../.././app/types/propsTypes.module'
 import styles from './NewReleasesBlock.module.scss'
 
-export const NewReleasesBlock:React.FC<types.NewReleasesBlockProps> = (props) => {
+export const NewReleasesBlock:React.FC<NewReleasesBlockProps> = (props) => {
     const {NewReleaseBlockData} = {...props}
-    const data :types.NewReleaseBlockData = {
-        coverSrc: albumCover, 
-        BandName:'ДДТ' ,
-        AlbumName:'Плывут по нему облака', 
-        CriticScore:87 ,
-        UserScore: 78,
-    }
     return(
         <div className="ml-[30px] mr-[30px] mt-[45px]">
             <div className="flex justify-between items-center">

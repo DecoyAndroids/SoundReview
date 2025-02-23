@@ -1,4 +1,4 @@
-import * as types from '../types/propsTypes.module'
+import type {NewReleaseBlockData} from '../types/propsTypes.module'
 import DDTAlbumCover from '../../../public/DDT_cover_album.png'
 import RaioHeadAlbumCover from '../../../public/RadioHead.png'
 import RedHotChilliPeppersAlbumCover from '../../../public/RedHotChilliPeppers.png'
@@ -6,7 +6,7 @@ import SplinAlbumCover from '../../../public/Splin.png'
 import Bi_2AlbumCover from '../../../public/Bi-2.png'
 
 
-export const Data:types.NewReleaseBlockData[] = [
+export const Data:NewReleaseBlockData[] = [
     {
         coverSrc : DDTAlbumCover,
         BandName : "ДДТ",

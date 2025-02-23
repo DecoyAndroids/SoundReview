@@ -1,4 +1,4 @@
-import { StaticImageData } from "next/image"
+import type { StaticImageData } from "next/image"
 
 export type NewReleaseBlockProps = {
     NewReleaseBlockData : NewReleaseBlockData
@@ -22,7 +22,7 @@ export type newsBlockProps = {
 
 export type newsBlockData = {
     articleCover: StaticImageData,
-    title: String,
-    author: String,
+    title: string,
+    author: string,
 } 
 

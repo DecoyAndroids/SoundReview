@@ -1,7 +1,7 @@
 import styles from './NewReleaseBlock.module.scss'
-import { NewReleaseBlockProps } from "axios/app/types/propsTypes.module"
+import type { NewReleaseBlockProps } from "axios/app/types/propsTypes.module"
 import { Separator } from "axios/components/ui/separator"
-import Image, { StaticImageData } from "next/image"
+import Image from "next/image"
 import Link from 'next/link'
 
 
