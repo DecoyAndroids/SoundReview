@@ -9,8 +9,6 @@ import Image from "next/image";
 export const NewsBlock: React.FC<newsBlockProps> = (props) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const {newsBlockData} = {...props}
-    console.log(newsBlockData)
-
     const scroll = (direction: "left" | "right") => {
       if (containerRef.current) {
         const scrollAmount = 300;
