@@ -4,6 +4,7 @@ import { SearchInput } from "../ui/SearchInput/searchInput";
 import * as NewsBlockData from "../../app/data/newsBlockData"
 import { NewReleasesBlock } from "./newReleasesBlock/NewReleasesBlock";
 import * as NewReleasesData from '../.././app/data/NewReleasesBlockData'
+import { PopularReviews } from "./popularReviews/PopularReviews";
 
 export const MainContentHolder: React.FC = () => {
     return (
@@ -11,6 +12,7 @@ export const MainContentHolder: React.FC = () => {
         <SearchInput/>
         <NewsBlock newsBlockData={NewsBlockData.newsBlocksData}/>
         <NewReleasesBlock NewReleaseBlockData={NewReleasesData.Data}/>
+        <PopularReviews/>
         </div>
     );
   };

@@ -27,18 +27,18 @@ export const NewReleaseBlock:React.FC<NewReleaseBlockProps> = (props) => {
                 <div className="flex">
                         <div className="flex-col mt-[6px]">
                             <p className='m-2.5 my-0 pb-0 leading-[16px] text-[14pt]'>{NewReleaseBlockData.UserScore}</p>
-                            <div className={`h-[4px] w-[40px] mt-[-18px] overflow-hidden`} style={{backgroundColor:'rgb(var(--text))'}}>
+                            <div className={`h-[4px] w-[40px] mt-[-18px] rounded-full overflow-hidden`} style={{backgroundColor:'rgb(var(--text))'}}>
                                     <div className={`h-full transition-all`} 
                                         style={{width:NewReleaseBlockData.UserScore+'%', backgroundColor:getColor(NewReleaseBlockData.UserScore)}}>
                                     </div>
                             </div>
                         </div>
-                        <p className=" ml-[5px] mt-[6px] font-light leading-none text-[14pt]" style={{fontWeight: 300}}>оценка критиков</p>
+                        <p className=" ml-[5px] mt-[6px] font-light leading-none text-[14pt] " style={{fontWeight: 300}}>оценка критиков</p>
                 </div>
                 <div className="flex mt-[-12px]">
                         <div className="flex-col mt-[6px]">
                             <p className='m-2.5 my-0 pb-0 leading-none text-[14pt]'>{NewReleaseBlockData.CriticScore}</p>
-                            <div className={`h-[4px] w-[40px] mt-[-18px] overflow-hidden`} style={{backgroundColor:'rgb(var(--text))'}}>
+                            <div className={`h-[4px] w-[40px] mt-[-18px] overflow-hidden rounded-full `} style={{backgroundColor:'rgb(var(--text))'}}>
                                     <div className={`h-full transition-all`} 
                                         style={{width:NewReleaseBlockData.CriticScore+'%', backgroundColor:getColor(NewReleaseBlockData.CriticScore)}}>
                                     </div>

@@ -4,6 +4,7 @@
     top:15px;
     width: 12.2%;
     margin: 15px 0px 15px 15px;
+    flex-shrink: 0;
     :first-child{
         line-height: 34px;
         background-color: rgb(var(--blackbrown));
