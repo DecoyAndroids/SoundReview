@@ -2,7 +2,7 @@
 import styles from "./newsBlock.module.scss"
 import Link from "next/link";
 import ArrowSrc from 'public/Arrow.svg'
-import { useRef, useLayoutEffect, useState } from "react";
+import { useRef } from "react";
 import type { newsBlockProps} from "axios/app/types/propsTypes.module";
 import type { StaticImageData } from "next/image";
 import Image from "next/image";

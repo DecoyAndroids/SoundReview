@@ -26,11 +26,11 @@ export type newsBlockData = {
     author: string,
 } 
 
-export type PopularReviewsProps = {
-    PopularReviewsData: PopularReviewsData;
+export type PopularReviewProps = {
+    PopularReviewData: PopularReviewData;
 }
 
-export type PopularReviewsData = {
+export type PopularReviewData = {
     bandName: string;
     albumName: string;
     albumCover: StaticImageData;
@@ -40,4 +40,8 @@ export type PopularReviewsData = {
     reviewText: string;
     likeCount: number;
     commentCount: number;
+}
+
+export type PopularReviewsProps = {
+    PopularReviewsData: Array<PopularReviewData>;
 }

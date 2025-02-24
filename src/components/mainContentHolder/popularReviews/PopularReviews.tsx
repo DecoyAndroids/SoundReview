@@ -1,24 +1,43 @@
+"use client"
 import { Separator } from "axios/components/ui/separator"
 import styles from './PopularReviews.module.scss'
 import { PopularReview } from "./popularReview/PopularReview"
-import { PopularReviewsBlockData } from "axios/app/data/PopularReviews"
-import { PopularReviewsData } from "axios/app/types/propsTypes.module"
+import type { PopularReviewData, PopularReviewsProps } from "axios/app/types/propsTypes.module"
+import { useEffect, useState } from "react"
 
-export const PopularReviews:React.FC = (props) => {
+export const PopularReviews:React.FC<PopularReviewsProps> = (props) => {
+    const {PopularReviewsData} = {...props}
+    const [discoverFull, setDiscoverFull] = useState<boolean>(false)
+    const [discoveredAlbumsFirstPart, setDiscoveredAlbumsFirstPart] = useState<PopularReviewData[]>([])
+    const [discoveredAlbumsSecondPart, setDiscoveredAlbumsSecondPart] = useState<PopularReviewData[]>([])
+    const handleChangeDiscoverState = () => {
+        setDiscoverFull(!discoverFull)
+    }
+    useEffect(()=>{
+        setDiscoveredAlbumsFirstPart(PopularReviewsData.slice(0,3))
+        setDiscoveredAlbumsSecondPart(PopularReviewsData.slice(3,6))
+    },[])
     return(
         <div className="ml-[30px] mr-[30px] mt-[45px]">
             <div className="flex justify-between items-center">
                 <p className={`text-[16pt]`}>ПОПУЛЯРНЫЕ РЕЦЕНЗИИ  ПОЛЬЗОВАТЕЛЕЙ</p>
-                <button className={`text-[16pt] ${styles.MoreButton}`}>БОЛЬШЕ</button>
+                <button className={`text-[16pt] ${styles.MoreButton}`} onClick={handleChangeDiscoverState}>БОЛЬШЕ</button>
             </div>
             <Separator/>
-            <div className="ml-[64px] mr-[64px] flex mt-[30px] justify-between">
-                    {PopularReviewsBlockData.length>0 ? PopularReviewsBlockData.map((PopularReviewsData, i) => {
-                        return (
-                            <PopularReview key={i} PopularReviewsData={PopularReviewsData}/>
-                        )
-                    }): <></>}
+            <div className={`ml-[64px] mr-[64px] flex mt-[30px] justify-between`}>
+                {[...discoveredAlbumsFirstPart].map((PopularReviewData,i) => {
+                    return(
+                        <PopularReview PopularReviewData={PopularReviewData} key={i}/>
+                    )
+                })}
             </div>
+            {discoverFull ? <div className={`ml-[64px] mr-[64px] flex mt-[30px] justify-between`}>
+                {[...discoveredAlbumsSecondPart].map((PopularReviewData,i) => {
+                    return(
+                        <PopularReview PopularReviewData={PopularReviewData} key={i}/>
+                    )
+                })}
+            </div> : <></>}
         </div>
     )
 }
