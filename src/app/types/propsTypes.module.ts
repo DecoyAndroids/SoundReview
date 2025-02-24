@@ -26,3 +26,17 @@ export type newsBlockData = {
     author: string,
 } 
 
+export  type PopularPlaylistsProps = {
+    PopularPlaylistsData : Array<PopularPlaylistData>
+}
+
+export type PopularPlaylistData = {
+    CoverSrc : StaticImageData,
+    NamePlaylist : string,
+    GenresPlaylist: Array<string>,
+    LikeCount : number,
+}
+
+export type PopularPlaylistProps = {
+    PopularPlaylistData : PopularPlaylistData
+}

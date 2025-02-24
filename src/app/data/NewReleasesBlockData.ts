@@ -15,15 +15,15 @@ export const Data:NewReleaseBlockData[] = [
         coverSrc : DDTAlbumCover,
         BandName : "ДДТ",
         AlbumName : "Плывут по небу облака",
-        CriticScore: 45,
-        UserScore: 65
+        CriticScore: 34,
+        UserScore: 78
     },
     {
         coverSrc : RaioHeadAlbumCover,
         BandName : "Radiohead",
         AlbumName : "Pablo Honey",
-        CriticScore: 12,
-        UserScore: 34
+        CriticScore: 78,
+        UserScore: 87
     },
     {
         coverSrc : RedHotChilliPeppersAlbumCover,
