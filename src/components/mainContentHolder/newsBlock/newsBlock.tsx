@@ -2,15 +2,16 @@
 import styles from "./newsBlock.module.scss"
 import Link from "next/link";
 import ArrowSrc from 'public/Arrow.svg'
-import { useRef } from "react";
+import { useRef, useLayoutEffect, useState } from "react";
 import type { newsBlockProps} from "axios/app/types/propsTypes.module";
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
 
+
 export const NewsBlock: React.FC<newsBlockProps> = ({ newsBlockData = [] }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);   
   const ArrowImageSRC: StaticImageData = ArrowSrc as StaticImageData;
-     
+  
     const scroll = (direction: "left" | "right") => {
         if (containerRef.current) {
             const scrollAmount = 300;
@@ -35,11 +36,13 @@ export const NewsBlock: React.FC<newsBlockProps> = ({ newsBlockData = [] }) => {
                     newsBlockData.map((item, i) => (
                         <Link key={i} href="/article" className="block">
                             <div 
-                                className={`min-w-[calc((100vw-239px-12.2vw)/3)] h-[320px] text-white flex flex-col text-lg rounded-xl shadow-lg bg-blue-600 ${styles.newsBlock}`} 
+                                className={`min-w-[calc((83.8vw-138px)/3)] h-[320px] text-white flex flex-col text-lg rounded-xl shadow-lg bg-blue-600 ${styles.newsBlock}`} 
                                 style={{ scrollSnapAlign: "start" }}
                             >
                                 <div className={styles.newsBlockImageContainer}>
-                                    <Image 
+                                    <Image
+                                        placeholder="blur"
+                                        priority={true}
                                         alt="" 
                                         src={item.articleCover} 
                                         className={`w-full h-full object-cover ${styles.newsBlockImage}`}
