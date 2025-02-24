@@ -18,7 +18,7 @@ export const PopularPlaylistsBlock : React.FC<PopularPlaylistsProps> = (props) =
             setDiscoveredAlbumsSecondPart(PopularPlaylistsData.slice(5,10))
         },[])
     return(
-        <div className="ml-[30px] mr-[30px] mt-[45px]">
+        <div className="ml-[30px] mr-[30px] mt-[45px] mb-[30px]">
             <div className="flex justify-between items-center">
                 <p className={`text-[16pt]`}>ПОПУЛЯРНЫЕ ПЛЕЙЛИСТЫ ПОЛЬЗОВАТЕЛЕЙ</p>
                 <button className={`text-[16pt] p-0 px-[15px] ${styles.MoreButton}`} onClick={handleChangeDiscoverState}>БОЛЬШЕ</button>
