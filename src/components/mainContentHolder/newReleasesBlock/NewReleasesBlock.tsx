@@ -1,7 +1,7 @@
 'use client'
 import { Separator } from "axios/components/ui/separator"
 import { NewReleaseBlock } from "./newReleaseBlock/NewReleaseBlock"
-import {NewReleaseBlockData, type NewReleasesBlockProps} from '../../.././app/types/propsTypes.module'
+import type {NewReleaseBlockData, NewReleasesBlockProps} from '../../.././app/types/propsTypes.module'
 import styles from './NewReleasesBlock.module.scss'
 import { useEffect, useState } from "react"
 
