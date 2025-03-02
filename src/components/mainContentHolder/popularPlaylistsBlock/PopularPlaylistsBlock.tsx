@@ -3,7 +3,7 @@ import styles from "./PopularPlaylistsBlock.module.scss"
 import { Separator } from "axios/components/ui/separator"
 import { PopularPlaylistBlock } from "./popularPlaylistBlock/PopularPlaylist"
 import { useEffect, useState } from "react"
-import { PopularPlaylistData, PopularPlaylistsProps } from "axios/app/types/propsTypes.module"
+import type { PopularPlaylistData, PopularPlaylistsProps } from "axios/app/types/propsTypes.module"
 
 export const PopularPlaylistsBlock : React.FC<PopularPlaylistsProps> = (props) => {
         const {PopularPlaylistsData} = {...props}
