@@ -1,7 +1,7 @@
 "use client"
 import styles from "./PopularReviews.module.scss";
-import Like from "../../../../../public/popularReviews/like.svg";
-import Comment from "../../../../../public/popularReviews/comment.svg";
+import Like from "../../../../../public/popularReviews/Like.png";
+import Comment from "../../../../../public/popularReviews/comment.png";
 import Image, { StaticImageData } from "next/image";
 import { useState, useEffect } from "react";
 import type { PopularReviewProps } from "axios/app/types/propsTypes.module";
@@ -11,8 +11,8 @@ export const PopularReview: React.FC<PopularReviewProps> = (props) => {
     const { PopularReviewData: PopularReviewData } = { ...props };
     const [isLiked, setIsLiked] = useState(false);
     const [likeCount, setLikeCount] = useState(PopularReviewData.likeCount);
-    const like: StaticImageData = Like;
-    const comment: StaticImageData = Comment;
+    const LikeIcon: StaticImageData = Like;
+    const CommentIcon: StaticImageData = Comment;
 
     const getColor = (value: number): string => {
         const clampedValue = Math.min(100, Math.max(0, value));
@@ -84,12 +84,12 @@ export const PopularReview: React.FC<PopularReviewProps> = (props) => {
                 <div className="flex items-center mt-3 text-gray-400 text-sm">
                     <p className="flex items-center mr-4">
                         <span onClick={handleLikeClick} className="mr-1 cursor-pointer transition-transform duration-200 transform hover:scale-110">
-                            <Image alt="like icon" src={like} width={20} height={20} style={likeIconStyle}/>
+                            <Image alt="like icon" src={LikeIcon} width={20} height={20} style={likeIconStyle}/>
                         </span>
                         {likeCount}
                     </p>
                     <p className="flex items-center">
-                        <span className="mr-1"><Image alt="comment icon" src={comment} width={18} height={18} /></span> {PopularReviewData.commentCount}
+                        <span className="mr-1"><Image alt="comment icon" src={CommentIcon} width={18} height={18} /></span> {PopularReviewData.commentCount}
                     </p>
                 </div>
             </div>

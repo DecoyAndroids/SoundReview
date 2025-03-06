@@ -1,4 +1,4 @@
-import { PopularPlaylistData } from "../types/propsTypes.module";
+import type { PopularPlaylistData } from "../types/propsTypes.module";
 import KukriniksSRC from '../../../public/popularPlaylistssCover/kukrinicks.png'
 import PhonkSRC from '../../../public/popularPlaylistssCover/phonk.png'
 import NirvanaSRC from '../../../public/popularPlaylistssCover/nirvana.png'
