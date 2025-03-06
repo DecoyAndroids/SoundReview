@@ -44,7 +44,8 @@ export type PopularReviewData = {
 
 export type PopularReviewsProps = {
     PopularReviewsData: Array<PopularReviewData>;
-}export  type PopularPlaylistsProps = {
+}
+export  type PopularPlaylistsProps = {
     PopularPlaylistsData : Array<PopularPlaylistData>
 }
 
