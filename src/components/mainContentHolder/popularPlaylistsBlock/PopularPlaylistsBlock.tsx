@@ -1,9 +1,9 @@
 'use client'
 import styles from "./PopularPlaylistsBlock.module.scss"
-import { Separator } from "axios/components/ui/separator"
+import { Separator } from "~/components/ui/separator"
 import { PopularPlaylistBlock } from "./popularPlaylistBlock/PopularPlaylist"
 import { useEffect, useState } from "react"
-import type { PopularPlaylistData, PopularPlaylistsProps } from "axios/app/types/propsTypes.module"
+import type { PopularPlaylistData, PopularPlaylistsProps } from "~/app/types/propsTypes.module"
 
 export const PopularPlaylistsBlock : React.FC<PopularPlaylistsProps> = (props) => {
         const {PopularPlaylistsData} = {...props}
@@ -25,16 +25,16 @@ export const PopularPlaylistsBlock : React.FC<PopularPlaylistsProps> = (props) =
             </div>
             <Separator/>
             <div className={`ml-[64px] mr-[64px] flex mt-[30px] justify-between`}>
-                            {[...discoveredAlbumsFirstPart].map((PopularplaylistBlockData,i) => {
+                            {[...discoveredAlbumsFirstPart].map((PopularplaylistBlockData) => {
                                 return(
-                                    <PopularPlaylistBlock PopularPlaylistData={PopularplaylistBlockData} key={i}/>
+                                    <PopularPlaylistBlock PopularPlaylistData={PopularplaylistBlockData} key={PopularplaylistBlockData.id}/>
                                 )
                             })}
                         </div>
                         {discoverFull ? <div className={`ml-[64px] mr-[64px] flex mt-[30px] justify-between`}>
-                            {[...discoveredAlbumsSecondPart].map((PopularplaylistBlockData,i) => {
+                            {[...discoveredAlbumsSecondPart].map((PopularplaylistBlockData) => {
                                 return(
-                                    <PopularPlaylistBlock PopularPlaylistData={PopularplaylistBlockData} key={i}/>
+                                    <PopularPlaylistBlock PopularPlaylistData={PopularplaylistBlockData} key={PopularplaylistBlockData.id}/>
                                 )
                             })}
                         </div> : <></>}

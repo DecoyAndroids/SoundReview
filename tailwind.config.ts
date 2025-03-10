@@ -46,6 +46,7 @@ export default {
                 ]
   		},
   		colors: {
+			grey: 'rgb(var(--gray) / <alpha-value>)',
   			blackamber: 'rgb(var(--blackamber) / <alpha-value>)',
   			blackbrown: 'rgb(var(--blackbrown) / <alpha-value>)',
   			cursedblack: 'rgb(var(--cursedblack) / <alpha-value>)',

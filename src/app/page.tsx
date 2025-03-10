@@ -1,4 +1,4 @@
-import {MainContentHolder} from "axios/components/mainContentHolder/mainContentHolder";
+import {MainContentHolder} from "~/components/mainContentHolder/mainContentHolder";
 
 
 export default function HomePage() {

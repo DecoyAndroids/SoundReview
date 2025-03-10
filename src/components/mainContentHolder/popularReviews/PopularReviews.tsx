@@ -1,8 +1,8 @@
 "use client"
-import { Separator } from "axios/components/ui/separator"
+import { Separator } from "~/components/ui/separator"
 import styles from './PopularReviews.module.scss'
 import { PopularReview } from "./popularReview/PopularReview"
-import type { PopularReviewData, PopularReviewsProps } from "axios/app/types/propsTypes.module"
+import type { PopularReviewData, PopularReviewsProps } from "~/app/types/propsTypes.module"
 import { useEffect, useState } from "react"
 
 export const PopularReviews:React.FC<PopularReviewsProps> = (props) => {
@@ -25,16 +25,16 @@ export const PopularReviews:React.FC<PopularReviewsProps> = (props) => {
             </div>
             <Separator/>
             <div className={`ml-[64px] mr-[64px] flex mt-[30px] justify-between`}>
-                {[...discoveredAlbumsFirstPart].map((PopularReviewData,i) => {
+                {[...discoveredAlbumsFirstPart].map((PopularReviewData) => {
                     return(
-                        <PopularReview PopularReviewData={PopularReviewData} key={i}/>
+                        <PopularReview PopularReviewData={PopularReviewData} key={PopularReviewData.id}/>
                     )
                 })}
             </div>
             {discoverFull ? <div className={`ml-[64px] mr-[64px] flex mt-[30px] justify-between`}>
-                {[...discoveredAlbumsSecondPart].map((PopularReviewData,i) => {
+                {[...discoveredAlbumsSecondPart].map((PopularReviewData) => {
                     return(
-                        <PopularReview PopularReviewData={PopularReviewData} key={i}/>
+                        <PopularReview PopularReviewData={PopularReviewData} key={PopularReviewData.id}/>
                     )
                 })}
             </div> : <></>}

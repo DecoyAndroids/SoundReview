@@ -1,5 +1,5 @@
 'use client'
-import { Separator } from "axios/components/ui/separator"
+import { Separator } from "~/components/ui/separator"
 import { NewReleaseBlock } from "./newReleaseBlock/NewReleaseBlock"
 import type {NewReleaseBlockData, NewReleasesBlockProps} from '../../.././app/types/propsTypes.module'
 import styles from './NewReleasesBlock.module.scss'
@@ -25,16 +25,16 @@ export const NewReleasesBlock:React.FC<NewReleasesBlockProps> = (props) => {
             </div>
             <Separator/>
             <div className={`ml-[64px] mr-[64px] flex mt-[30px] justify-between`}>
-                {[...discoveredAlbumsFirstPart].map((NewReleaseBlockData,i) => {
+                {[...discoveredAlbumsFirstPart].map((NewReleaseBlockData) => {
                     return(
-                        <NewReleaseBlock NewReleaseBlockData={NewReleaseBlockData} key={i}/>
+                        <NewReleaseBlock NewReleaseBlockData={NewReleaseBlockData} key={NewReleaseBlockData.id}/>
                     )
                 })}
             </div>
             {discoverFull ? <div className={`ml-[64px] mr-[64px] flex mt-[30px] justify-between`}>
-                {[...discoveredAlbumsSecondPart].map((NewReleaseBlockData,i) => {
+                {[...discoveredAlbumsSecondPart].map((NewReleaseBlockData) => {
                     return(
-                        <NewReleaseBlock NewReleaseBlockData={NewReleaseBlockData} key={i}/>
+                        <NewReleaseBlock NewReleaseBlockData={NewReleaseBlockData} key={NewReleaseBlockData.id}/>
                     )
                 })}
             </div> : <></>}

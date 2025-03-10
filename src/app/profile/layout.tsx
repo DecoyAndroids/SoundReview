@@ -3,9 +3,6 @@ import "~/styles/globals.scss";
 
 import { Ubuntu, Ubuntu_Mono, Ubuntu_Sans } from "next/font/google";
 import { type Metadata } from "next";
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from "@vercel/analytics/react"
-import { Sidebar } from "~/components/sidebar/sidebar";
 
 const ubuntu = Ubuntu({subsets:['cyrillic'], weight:['300','400','500','700'], variable: '--font-ubuntu',})
 const ubuntuMono = Ubuntu_Mono({subsets:['cyrillic'], weight:['400','700'], variable: '--font-ubuntu-mono',})
@@ -22,14 +19,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${ubuntu.variable} ${ubuntuMono.variable} ${ubuntuSans.variable}`}>
-      <body className="font-ubuntu">
-        <Sidebar/>
-        <SpeedInsights/>
-        <Analytics/>
+    <div className="flex grow ">
         {children}
-      </body>
-      
-    </html>
+    </div>
   );
 }
