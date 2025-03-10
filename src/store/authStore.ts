@@ -1,8 +1,8 @@
 import { create } from "zustand";
-import { Session, User } from "@supabase/supabase-js";
-import { createClient } from '@supabase/supabase-js'
+import type { Session, User } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(process.env.supabaseUrl! , process.env.supabaseKey!)
+const supabase = createClient(process.env.supabaseUrl!, process.env.supabaseKey!);
 
 // Типизация Zustand-стейта
 interface AuthState {
@@ -27,15 +27,15 @@ export const useAuthStore = create<AuthState>((set) => ({
   checkAuth: async () => {
     const { data } = await supabase.auth.getSession();
     set({
-      user: data.session?.user || null,
-      session: data.session || null,
+      user: data.session?.user ?? null, // ✅ Используем ?? вместо ||
+      session: data.session ?? null, // ✅ Используем ?? вместо ||
     });
 
     // Подписка на изменения авторизации
     supabase.auth.onAuthStateChange((_event, session) => {
       set({
-        user: session?.user || null,
-        session: session || null,
+        user: session?.user ?? null, // ✅ Используем ?? вместо ||
+        session: session ?? null, // ✅ Используем ?? вместо ||
       });
     });
   },

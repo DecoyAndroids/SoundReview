@@ -1,4 +1,4 @@
-import { LoginContentHolder } from "axios/components/loginContentHolder/LoginContentHolder";
+import { LoginContentHolder } from "~/components/loginContentHolder/LoginContentHolder";
 
 
 

@@ -1,4 +1,4 @@
-import {SignInUpContentHolder} from "axios/components/signUpContentHolder/SignUpContentHolder";
+import {SignInUpContentHolder} from "~/components/signUpContentHolder/SignUpContentHolder";
 
 
 export default function SignInUpPage() {

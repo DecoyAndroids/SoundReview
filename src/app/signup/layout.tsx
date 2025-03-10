@@ -1,5 +1,5 @@
 'client-only'
-import "axios/styles/globals.scss";
+import "~/styles/globals.scss";
 
 import { Ubuntu, Ubuntu_Mono, Ubuntu_Sans } from "next/font/google";
 import { type Metadata } from "next";
