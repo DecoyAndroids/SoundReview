@@ -5,6 +5,12 @@
 import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+    env: {
+        supabaseUrl: process.env.supabaseUrl || 'supabaseUrl',
+        supabaseKey: process.env.supabaseKey || 'supabaseKey'
+      }
+};
 
 export default config;
+

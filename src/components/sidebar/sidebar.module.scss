@@ -48,9 +48,7 @@
 
 .ProfileBlock {
     display: flex;
-    padding-left: 5px;
-    border-radius: 12px;
-    max-width: 100%;
+    padding-left: 1em;
 }
 
 .Avatar {
@@ -61,9 +59,6 @@
 }
 
 .UserName {
-    padding-left: 16px;
-    margin-top: 0.5vw;
-    font-size: clamp(14px, 1.37vw, 28px);
     white-space: nowrap;
     color: white;
 }
