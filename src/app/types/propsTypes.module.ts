@@ -5,6 +5,7 @@ export type NewReleaseBlockProps = {
 }
 
 export type NewReleaseBlockData = {
+    id: number;
     coverSrc : StaticImageData,
     BandName : string,
     AlbumName : string,
@@ -21,6 +22,7 @@ export type newsBlockProps = {
 }
 
 export type newsBlockData = {
+    id: number;
     articleCover: StaticImageData,
     title: string,
     author: string,
@@ -31,6 +33,7 @@ export type PopularReviewProps = {
 }
 
 export type PopularReviewData = {
+    id: number;
     bandName: string;
     albumName: string;
     albumCover: StaticImageData;
@@ -50,6 +53,7 @@ export  type PopularPlaylistsProps = {
 }
 
 export type PopularPlaylistData = {
+    id: number;
     CoverSrc : StaticImageData,
     NamePlaylist : string,
     GenresPlaylist: Array<string>,

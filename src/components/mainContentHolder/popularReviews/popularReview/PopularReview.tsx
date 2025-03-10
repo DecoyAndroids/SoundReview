@@ -4,7 +4,7 @@ import Like from "../../../../../public/popularReviews/Like.png";
 import Comment from "../../../../../public/popularReviews/comment.png";
 import Image, { StaticImageData } from "next/image";
 import { useState, useEffect } from "react";
-import type { PopularReviewProps } from "axios/app/types/propsTypes.module";
+import type { PopularReviewProps } from "~/app/types/propsTypes.module";
 import Link from "next/link";
 
 export const PopularReview: React.FC<PopularReviewProps> = (props) => {

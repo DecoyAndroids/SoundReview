@@ -1,19 +1,20 @@
 import type {PopularReviewData} from "../types/propsTypes.module"
-import NWA from "../../../public/popularReviews/NWA.jpg"
-import Jonatan from "../../../public/popularReviews/Jonatan.jpg"
-import ACDC from "../../../public/popularReviews/ACDC.jpg"
-import NIRVANA from "../../../public/popularReviews/NIRVANA.jpg"
-import ava1 from "../../../public/popularReviews/ava1.jpg"
-import ava2 from "../../../public/popularReviews/ava2.jpg"
-import ava3 from "../../../public/popularReviews/ava3.jpg"
-import ava4 from "../../../public/popularReviews/ava4.jpg"
-import ava5 from "../../../public/popularReviews/ava5.jpg"
-import Noize from "../../../public/popularReviews/Noize.jpg"
-import Kishlak from "../../../public/popularReviews/Kishlak.jpg"
-import MacksKorzj from "../../../public/popularReviews/MacksKorzj.jpg"
+import NWA from "~/public/popularReviews/NWA.jpg"
+import Jonatan from "~/public/popularReviews/Jonatan.jpg"
+import ACDC from "~/public/popularReviews/ACDC.jpg"
+import NIRVANA from "~/public/popularReviews/NIRVANA.jpg"
+import ava1 from "~/public/popularReviews/ava1.jpg"
+import ava2 from "~/public/popularReviews/ava2.jpg"
+import ava3 from "~/public/popularReviews/ava3.jpg"
+import ava4 from "~/public/popularReviews/ava4.jpg"
+import ava5 from "~/public/popularReviews/ava5.jpg"
+import Noize from "~/public/popularReviews/Noize.jpg"
+import Kishlak from "~/public/popularReviews/Kishlak.jpg"
+import MacksKorzj from "~/public/popularReviews/MacksKorzj.jpg"
 
 export const PopularReviewsBlockData:Array<PopularReviewData> = [
 {
+    id: 1,
     bandName: "N.W.A",
     albumName: "Greatest hits",
     albumCover: NWA,
@@ -25,6 +26,7 @@ export const PopularReviewsBlockData:Array<PopularReviewData> = [
     commentCount: 42,
 },
 {
+    id: 2,
     bandName: "AC/DC",
     albumName: "Hidhway To Hell",
     albumCover: ACDC,
@@ -36,6 +38,7 @@ export const PopularReviewsBlockData:Array<PopularReviewData> = [
     commentCount: 23,
 },
 {
+    id: 3,
     bandName: "NIRVANA",
     albumName: "In Utero",
     albumCover: NIRVANA,
@@ -47,6 +50,7 @@ export const PopularReviewsBlockData:Array<PopularReviewData> = [
     commentCount: 322,
 },
 {
+    id: 4,
     bandName: "Noize MC",
     albumName: "Новый альбом",
     albumCover: Noize,
@@ -58,6 +62,7 @@ export const PopularReviewsBlockData:Array<PopularReviewData> = [
     commentCount: 12,
 },
 {
+    id: 5,
     bandName: "Кишлак",
     albumName: "Эскапист",
     albumCover: Kishlak,
@@ -69,6 +74,7 @@ export const PopularReviewsBlockData:Array<PopularReviewData> = [
     commentCount: 14,
 },
 {
+    id: 6,
     bandName: "Макс Корж",
     albumName: "Малый повзрослел, Ч. 2",
     albumCover: MacksKorzj,

@@ -2,7 +2,7 @@ import Image from "next/image";
 import type { StaticImageData } from "next/image";
 import styles from './PopularPlaylist.module.scss'
 import LikeIcon from "../../../../../public/generalIcons/Like.png"; 
-import type { PopularPlaylistProps } from "axios/app/types/propsTypes.module";
+import type { PopularPlaylistProps } from "~/app/types/propsTypes.module";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
