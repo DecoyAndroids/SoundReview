@@ -9,7 +9,6 @@ import { useAuthStore } from "~/store/authStore"
 
 export const  Sidebar = () => {
     const user = useAuthStore((state) => state.user);
-    console.log(user)
     return(
         <div className={`flex flex-col  ${styles.Sidebar}`}> 
   
