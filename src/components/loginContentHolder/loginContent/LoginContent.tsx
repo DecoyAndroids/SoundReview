@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react"
-import { useAuthStore } from "axios/store/authStore"
-import {signInWithPassword} from "axios/app/actions/auth"
+import { useAuthStore } from "~/store/authStore"
+import {signInWithPassword} from "~/app/actions/auth"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 
