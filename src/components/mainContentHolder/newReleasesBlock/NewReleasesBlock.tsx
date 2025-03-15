@@ -29,10 +29,12 @@ export const NewReleasesBlock:React.FC = () => {
         try{
         setIsloading(true)
         const res:Response = await fetch('/api/getNewReleases')
+        console.log(res)
         if (!res.ok) {
             throw new Error(`Ошибка запроса: ${res.status} ${res.statusText}`);
         }
-        const data = (await res.json()) as NewReleasesResponse;   
+        const data = (await res.json()) as NewReleasesResponse; 
+        console.log(data)  
         setDiscoveredAlbumsFirstPart(data.albums.items.slice(0,6))
         setDiscoveredAlbumsSecondPart(data.albums.items.slice(6,12)) 
         }catch(error){
