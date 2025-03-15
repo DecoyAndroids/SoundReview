@@ -28,7 +28,7 @@ export const NewReleasesBlock:React.FC = () => {
     const fetchData = async ()=>{
         try{
         setIsloading(true)
-        const res:Response = await fetch('http://localhost:3000/api/getNewReleases')
+        const res:Response = await fetch('/api/getNewReleases')
         if (!res.ok) {
             throw new Error(`Ошибка запроса: ${res.status} ${res.statusText}`);
         }

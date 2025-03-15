@@ -20,7 +20,7 @@ export const NewReleaseBlock:React.FC<NewReleaseBlockProps> = (props) => {
         <div className={`${styles.NewReleaseCard} w-[15.9rem]`}>
             <Link href='/ablum' className=''>
                 {srcUrl ? 
-                <Image src={srcUrl} priority={true} placeholder="blur" blurDataURL='http://localhost:3000/api/placeholder' width={130} height={130} className={`${styles.CoverAlbum}`} alt='cover of album' style={{width:`15.9rem` , aspectRatio : 1/1, flexWrap: `wrap`}}/>
+                <Image src={srcUrl} priority={true} placeholder="blur" blurDataURL='/api/placeholder' width={130} height={130} className={`${styles.CoverAlbum}`} alt='cover of album' style={{width:`15.9rem` , aspectRatio : 1/1, flexWrap: `wrap`}}/>
                 : <></>}
                 </Link>
             <p className={`leading-[1.2rem] mt-[0.5em] font-[500] h-fit text-[1.2rem]`}>{NewReleaseBlockData.name}</p>
