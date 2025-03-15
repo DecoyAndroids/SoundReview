@@ -5,12 +5,30 @@ export type NewReleaseBlockProps = {
 }
 
 export type NewReleaseBlockData = {
-    id: number;
-    coverSrc : StaticImageData,
-    BandName : string,
-    AlbumName : string,
-    CriticScore: number,
-    UserScore: number,
+    album_type : string
+    artists : Array<{
+        external_urls : object
+        href : string 
+        id : string 
+        name : string
+        type : string 
+        uri : string
+    }>
+    avaliable_markets : Array<string>
+    external_urls : object
+    href : string
+    id : string
+    images : Array<{
+        height : number
+        url : string
+        width : number 
+    }>
+    name : string 
+    release_date : string 
+    release_data_precesion : string 
+    total_tracks : number 
+    type: string
+    uri : string 
 }
 
 export type NewReleasesBlockProps = {

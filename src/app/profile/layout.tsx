@@ -1,12 +1,7 @@
 'client-only'
 import "~/styles/globals.scss";
 
-import { Ubuntu, Ubuntu_Mono, Ubuntu_Sans } from "next/font/google";
 import { type Metadata } from "next";
-
-const ubuntu = Ubuntu({subsets:['cyrillic'], weight:['300','400','500','700'], variable: '--font-ubuntu',})
-const ubuntuMono = Ubuntu_Mono({subsets:['cyrillic'], weight:['400','700'], variable: '--font-ubuntu-mono',})
-const ubuntuSans = Ubuntu_Sans({subsets:['cyrillic'], weight:['300','400','500','700'], variable: '--font-ubuntu-sans',})
 
 
 export const metadata: Metadata = {

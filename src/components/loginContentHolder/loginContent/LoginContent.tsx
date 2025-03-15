@@ -1,7 +1,6 @@
 "use client"
 import { useState } from "react"
 import { useAuthStore } from "~/store/authStore"
-import {signInWithPassword} from "~/app/actions/auth"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 
@@ -9,9 +8,7 @@ import { useRouter } from "next/navigation"
 
 export const LoginContent:React.FC = () =>{
     const [loginForm, setloginForm] = useState({email:'',password:'',})
-    //const [email, setEmail] = useState("");
-    //const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
+
     const login = useAuthStore((state) => state.login);
     const router = useRouter();
     
@@ -22,11 +19,9 @@ export const LoginContent:React.FC = () =>{
 
     const OnSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        setError("")
 
         const {error} = await login(loginForm.email,loginForm.password)
         if (error) {
-            setError(error)
             return;
         }
         router.push('/')
