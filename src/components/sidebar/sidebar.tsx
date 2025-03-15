@@ -38,7 +38,7 @@ export const  Sidebar = () => {
         {user != null ?
         <Link href='/profile' className={`flex mt-auto p-2 ${styles.ProfileContainer}`}>
             <Image src={userAvatarSrc} alt='Avatar' className={`${styles.Avatar}`} />
-            <h4 className={`${styles.UserName} grow text-[2rem]`}>{user.email!.split("@")[0]}</h4>   
+            <h4 className={`${styles.UserName} grow text-[1.3vw]`}>{user.email!.split("@")[0]}</h4>   
         </Link> 
         : 
         <Link href='/login' className={`flex mt-auto ${styles.ProfileContainer}`}>

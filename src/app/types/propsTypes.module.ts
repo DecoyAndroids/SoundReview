@@ -46,10 +46,10 @@ export type PopularReviewData = {
 }
 
 export type PopularReviewsProps = {
-    PopularReviewsData: Array<PopularReviewData>;
+    PopularReviewsData: PopularReviewData[];
 }
 export  type PopularPlaylistsProps = {
-    PopularPlaylistsData : Array<PopularPlaylistData>
+    PopularPlaylistsData : PopularPlaylistData[]
 }
 
 export type PopularPlaylistData = {
@@ -62,4 +62,18 @@ export type PopularPlaylistData = {
 
 export type PopularPlaylistProps = {
     PopularPlaylistData : PopularPlaylistData
+}
+
+export type ProfileInfoData = {
+    id: number;
+    ProfileSrc : StaticImageData,
+    ProfileName : string,
+    ProfileRegDate : string,
+    ProfileSubscribers: number;
+    ProfileSubscriptions: number;
+    ProfilePosts: Array<string>,
+}
+
+export type ProfileInfoProps = {
+    ProfileInfoData : ProfileInfoData
 }

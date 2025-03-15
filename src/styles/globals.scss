@@ -130,17 +130,17 @@ body{
   font-weight: 400;
   font-family: var(--font-ubuntu-sans);
 }
-button{
+:where(button){
     background-color: rgb(var(--blackbrown));
     border-radius: 9 9 9 9;
     color: rgb(var(--sub));
     padding: 9px;
 }
-button:hover{
+:where(button:hover){
     background-color: rgb(var(--anthracitegrey));
     color:rgb(var(--text))
 }
-input{
+:where(input){
     color:rgb(var(--text));
     padding: 5 15 ;
     border-radius: 9 9 9 9;

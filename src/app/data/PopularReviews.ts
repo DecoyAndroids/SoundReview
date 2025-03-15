@@ -12,7 +12,7 @@ import Noize from "~/public/popularReviews/Noize.jpg"
 import Kishlak from "~/public/popularReviews/Kishlak.jpg"
 import MacksKorzj from "~/public/popularReviews/MacksKorzj.jpg"
 
-export const PopularReviewsBlockData:Array<PopularReviewData> = [
+export const PopularReviewsBlockData:PopularReviewData[] = [
 {
     id: 1,
     bandName: "N.W.A",

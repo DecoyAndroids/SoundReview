@@ -1,7 +1,7 @@
 "use client"
 import styles from "./PopularReviews.module.scss";
-import Like from "../../../../../public/popularReviews/Like.png";
-import Comment from "../../../../../public/popularReviews/comment.png";
+import Like from "~/public/popularReviews/Like.png";
+import Comment from "~/public/popularReviews/comment.png";
 import Image, { StaticImageData } from "next/image";
 import { useState, useEffect } from "react";
 import type { PopularReviewProps } from "~/app/types/propsTypes.module";
