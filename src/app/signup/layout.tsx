@@ -1,10 +1,7 @@
 'client-only'
 import "~/styles/globals.scss";
 
-import { Ubuntu, Ubuntu_Mono, Ubuntu_Sans } from "next/font/google";
 import { type Metadata } from "next";
-
-const ubuntu = Ubuntu({subsets:['cyrillic'], weight:['300','400','500','700'], variable: '--font-ubuntu',})
 
 export const metadata: Metadata = {
   title: "Create T3 App",
