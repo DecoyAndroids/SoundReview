@@ -8,7 +8,10 @@ import { Sidebar } from "~/components/sidebar/sidebar";
 import { useAuthStore } from "~/store/authStore";
 import { useEffect } from "react";
 
+
 const ubuntu = Ubuntu({subsets:['cyrillic'], weight:['300','400','500','700'], variable: '--font-ubuntu',})
+
+
 
 export default function RootLayout({children,}: Readonly<{ children: React.ReactNode }>) {
   const checkAuth = useAuthStore((state) => state.checkAuth);
@@ -19,6 +22,7 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
     void fetchData()
   }, [checkAuth]);
 
+  
   return (
     <html lang="en" className={`${ubuntu.variable}`}>
       <body className="font-ubuntu">
