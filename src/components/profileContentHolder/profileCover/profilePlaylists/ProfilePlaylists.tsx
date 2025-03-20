@@ -14,7 +14,7 @@ export const ProfilePlaylists: React.FC<PopularPlaylistsProps> = props => {
     const [showAll, setShowAll] = useState(false);
     const displayedPosts = showAll ? PopularPlaylistsData : PopularPlaylistsData.slice(0, 5);
 
-
+ 
     return (
         <div className='space-y-6'>
             {PopularPlaylistsData.length > 0 && (
@@ -23,8 +23,8 @@ export const ProfilePlaylists: React.FC<PopularPlaylistsProps> = props => {
                     <Separator className={`mb-5 ml-0 w-[calc(100%)]`} />
                 <div className='grid grid-cols-1 gap-5 sm:grid-cols-3 lg:grid-cols-5'>
                     {displayedPosts.map((post) => (
-                    <div >
-                        <Link href='/playlist'>
+                    <div key={post.id}>
+                        <Link href='/playlist' >
                             <Image
                                 alt='Cover of playlist'
                                 src={post.CoverSrc}
