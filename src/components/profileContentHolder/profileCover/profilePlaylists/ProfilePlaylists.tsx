@@ -24,7 +24,7 @@ export const ProfilePlaylists: React.FC<PopularPlaylistsProps> = props => {
                 <div className='grid grid-cols-1 gap-5 sm:grid-cols-3 lg:grid-cols-5'>
                     {displayedPosts.map((post) => (
                     <div key={post.id}>
-                        <Link href='/playlist' >
+                        <Link href='/playlist'>
                             <Image
                                 alt='Cover of playlist'
                                 src={post.CoverSrc}

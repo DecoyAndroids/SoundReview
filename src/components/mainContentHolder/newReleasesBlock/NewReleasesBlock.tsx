@@ -5,6 +5,7 @@ import styles from './NewReleasesBlock.module.scss'
 import { useEffect, useState } from "react"
 import { NewReleaseBlock } from "./newReleaseBlock/NewReleaseBlock"
 
+
 interface NewReleasesResponse {
     albums: {
         href : string ; 
@@ -33,8 +34,8 @@ export const NewReleasesBlock:React.FC = () => {
             throw new Error(`Ошибка запроса: ${res.status} ${res.statusText}`);
         }
         const data = (await res.json()) as NewReleasesResponse;  
-        setDiscoveredAlbumsFirstPart(data.albums.items.slice(0,6))
-        setDiscoveredAlbumsSecondPart(data.albums.items.slice(6,12)) 
+        setDiscoveredAlbumsFirstPart(data.albums.items.slice(0,5))
+        setDiscoveredAlbumsSecondPart(data.albums.items.slice(5,10)) 
         }catch(error){
             console.log(error)
         }finally{
@@ -53,7 +54,7 @@ export const NewReleasesBlock:React.FC = () => {
             <Separator/>
             {!isLoading ? <div className={`ml-[64px] mr-[64px] flex mt-[30px] justify-between`}>
                 {[...discoveredAlbumsFirstPart].map((NewReleaseBlockData) => {
-
+                    console.log(NewReleaseBlockData.release_date , NewReleaseBlockData.release_data_precesion)
                     return(
                         <NewReleaseBlock NewReleaseBlockData={NewReleaseBlockData} key={NewReleaseBlockData.id}/>
                     )

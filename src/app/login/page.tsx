@@ -4,7 +4,7 @@ import { LoginContentHolder } from "~/components/loginContentHolder/LoginContent
 
 export default function LoginPage() {
   return (
-    <main className="flex grow mr-[15px] ml-[15px] mt-[15px] mb-[15px] gap-3 h-fit font-ubuntu flex-col items-center justify-center text-white">
+    <main className="flex grow mr-[15px] ml-[15px] mt-[15px] mb-[15px] gap-3 h-fit  flex-col items-center justify-center text-white">
       <LoginContentHolder/>
     </main>
   );
