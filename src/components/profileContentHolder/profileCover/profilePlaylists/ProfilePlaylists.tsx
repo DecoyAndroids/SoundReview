@@ -14,7 +14,7 @@ export const ProfilePlaylists: React.FC<PopularPlaylistsProps> = props => {
     const [showAll, setShowAll] = useState(false);
     const displayedPosts = showAll ? PopularPlaylistsData : PopularPlaylistsData.slice(0, 5);
 
-
+ 
     return (
         <div className='space-y-6'>
             {PopularPlaylistsData.length > 0 && (

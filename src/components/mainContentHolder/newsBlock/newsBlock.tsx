@@ -9,6 +9,7 @@ import {
 } from "~/components/ui/carousel";
 import type { newsBlockProps } from "~/app/types/propsTypes.module";
 import Image from "next/image";
+import styles from "./newsBlock.module.scss"
 
 export const NewsBlock: React.FC<newsBlockProps> = ({ newsBlockData = [] }) => {
     return (
@@ -34,7 +35,7 @@ export const NewsBlock: React.FC<newsBlockProps> = ({ newsBlockData = [] }) => {
                                             priority={true}
                                             alt="news cover" 
                                             src={news.articleCover} 
-                                            className="w-full h-full object-cover rounded-t-2xl"
+                                            className={`w-full h-full object-cover rounded-t-2xl ${styles.newsBlockImage}`}
                                         />
                                         <div className="absolute h-fit w-full bottom-0 left-0 w-full bg-black/60 p-2">
                                             <p className="text-white h-fit text-sm font-medium text-16" >{news.title}</p>
