@@ -86,7 +86,7 @@ export const ProfileCover: React.FC<ProfileInfoProps> = (props) => {
             <div className='flex-col pt-[0.5em] pl-[4em]'>
                 <div className='flex'>
                     <p className='text-[2rem] mb-[0.3em]'>{user?.email!.split("@")[0]}</p>
-                    <button className='bg-[rgb(var(--cursedblack))]' onClick={()=>{updateUser('stasya')}}>updata name</button>
+                    <button className='bg-[rgb(var(--cursedblack))]' onClick={async()=>{await updateUser('stasya')}}>updata name</button>
                 </div>
                 <p className='text-[1.2rem] opacity-50'>c {ProfileInfoData.ProfileRegDate}</p>
                 <div className='flex'>
