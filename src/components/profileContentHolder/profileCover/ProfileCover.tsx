@@ -1,8 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import Avatar from '~/public/userAvatar.jpg';
 import { useAuthStore } from '~/store/authStore';
+import { updateUser } from '~/app/actions/auth';
+
+import Avatar from '~/public/userAvatar.jpg';
 import { Button } from '~/components/ui/button';
 import { useRouter } from 'next/navigation';
 import settings from '~/public/generalIcons/settings.png';
@@ -43,7 +45,7 @@ export const ProfileCover: React.FC<ProfileInfoProps> = (props) => {
         await logout();
         router.push('/');
     };
-
+    console.log(user)
     return (
         <div className="h-full bg-[rgb(var(--blackbrown))] rounded-[9px] relative overflow-visible">
             <div 
@@ -84,6 +86,7 @@ export const ProfileCover: React.FC<ProfileInfoProps> = (props) => {
             <div className='flex-col pt-[0.5em] pl-[4em]'>
                 <div className='flex'>
                     <p className='text-[2rem] mb-[0.3em]'>{user?.email!.split("@")[0]}</p>
+                    <button className='bg-[rgb(var(--cursedblack))]' onClick={()=>{updateUser('stasya')}}>updata name</button>
                 </div>
                 <p className='text-[1.2rem] opacity-50'>c {ProfileInfoData.ProfileRegDate}</p>
                 <div className='flex'>
