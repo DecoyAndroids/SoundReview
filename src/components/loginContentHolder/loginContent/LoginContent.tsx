@@ -35,7 +35,7 @@ export const LoginContent:React.FC = () =>{
                 <input onChange={onChange} className="p-2 px-4 bg-[rgb(var(--blackamber))]" placeholder="email" name='email' value={loginForm.email}/>
                 <input onChange={onChange} className="p-2 px-4 bg-[rgb(var(--blackamber))]" placeholder="password" name='password' value={loginForm.password}/>
                 <button className="bg-[rgb(var(--gray))] p-2">Войти</button>
-                {loginError && <p className="text-[rgb(var(--red))] text-[0.75rem] ">Пожалуйста, проверьте свой пароль и почту и попробуйте снова.</p>}
+                {loginError && <p className="text-[rgb(var(--red))] text-[0.9rem] h-fit">Пожалуйста, проверьте свой пароль и почту и попробуйте снова.</p>}
             </form>
             {/* <button onClick={() => signInWithGoogle()}>Войти через Google</button> */}
             <Link href="/signup" className="text-[rgb(var(--sub))] hover:underline">Создайте Аккаунт, если у вас его нет</Link>

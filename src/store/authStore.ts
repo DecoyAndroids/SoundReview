@@ -56,7 +56,6 @@ export const useAuthStore = create<AuthState>((set) => ({
 
     return {};
   },
-
   // Выход из аккаунта
   logout: async () => {
     await supabase.auth.signOut();
