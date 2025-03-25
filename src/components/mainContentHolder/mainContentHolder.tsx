@@ -5,7 +5,6 @@ import * as NewsBlockData from "../../app/data/newsBlockData"
 import { NewReleasesBlock } from "./newReleasesBlock/NewReleasesBlock";
 import { PopularReviews } from "./popularReviews/PopularReviews";
 import { PopularReviewsBlockData } from "~/app/data/PopularReviews"
-
 import { PopularPlaylistsBlock } from "./popularPlaylistsBlock/PopularPlaylistsBlock"
 import { PopularPlaylistBlockData } from "~/app/data/PopularPlaylists";
 

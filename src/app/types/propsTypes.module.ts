@@ -66,6 +66,21 @@ export type PopularReviewData = {
 export type PopularReviewsProps = {
     PopularReviewsData: PopularReviewData[];
 }
+
+export type ProfileInfoData = {
+    id: number;
+    ProfileSrc : StaticImageData,
+    ProfileName : string,
+    ProfileRegDate : string,
+    ProfileSubscribers: number;
+    ProfileSubscriptions: number;
+    ProfilePosts: Array<string>,
+}
+
+export type ProfileInfoProps = {
+    ProfileInfoData : ProfileInfoData
+}
+
 export  type PopularPlaylistsProps = {
     PopularPlaylistsData : PopularPlaylistData[]
 }
@@ -82,16 +97,59 @@ export type PopularPlaylistProps = {
     PopularPlaylistData : PopularPlaylistData
 }
 
-export type ProfileInfoData = {
-    id: number;
-    ProfileSrc : StaticImageData,
-    ProfileName : string,
-    ProfileRegDate : string,
-    ProfileSubscribers: number;
-    ProfileSubscriptions: number;
-    ProfilePosts: Array<string>,
+export type NewArticlesProps = {
+    NewArticlesData : NewArticleData[]
 }
 
-export type ProfileInfoProps = {
-    ProfileInfoData : ProfileInfoData
+export type NewArticleProps = {
+    NewArticleData: NewArticleData,
 }
+
+export type NewArticleData = {
+    id: number;
+    articleCover: StaticImageData,
+    authorCover: StaticImageData,
+    title: string,
+    author: string,
+    data: string;
+    LikeCount: number;
+    CommentCount: number;
+} 
+
+export type BestArticlesProps = {
+    BestArticlesData : BestArticleData[]
+}
+
+export type BestArticleProps = {
+    BestArticleData: BestArticleData,
+}
+
+export type BestArticleData = {
+    id: number;
+    articleCover: StaticImageData,
+    authorCover: StaticImageData,
+    title: string,
+    author: string,
+    data: string;
+    LikeCount: number;
+    CommentCount: number;
+} 
+
+export type IntArticlesProps = {
+    IntArticlesData : IntArticleData[]
+}
+
+export type IntArticleProps = {
+    IntArticleData: IntArticleData,
+}
+
+export type IntArticleData = {
+    id: number;
+    articleCover: StaticImageData,
+    authorCover: StaticImageData,
+    title: string,
+    author: string,
+    data: string;
+    LikeCount: number;
+    CommentCount: number;
+} 

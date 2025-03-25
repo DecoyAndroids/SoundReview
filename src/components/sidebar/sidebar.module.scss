@@ -25,7 +25,6 @@
     :not(.Sidebar,.Avatar){
         border-radius: 9px;
         min-width: fit-content;
-        word-spacing: 9999px;
         text-align: center;
     }
 }
@@ -35,11 +34,10 @@
     border-radius: 9px;
     display: flex;
     flex-direction: column;
-    font-size: 32px;
     font-weight: lighter;
     row-gap: 4;
-
 }
+
 .ProfileContainer {
     overflow: hidden;
     display: flex;

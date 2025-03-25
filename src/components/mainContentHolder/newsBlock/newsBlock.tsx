@@ -1,56 +1,52 @@
-'use client' 
-import Link from "next/link";
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "~/components/ui/carousel";
-import type { newsBlockProps } from "~/app/types/propsTypes.module";
-import Image from "next/image";
-import styles from "./newsBlock.module.scss"
+'use client';
+import Link from 'next/link';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '~/components/ui/carousel';
+import type { newsBlockProps } from '~/app/types/propsTypes.module';
+import Image from 'next/image';
+import styles from './newsBlock.module.scss';
 
 export const NewsBlock: React.FC<newsBlockProps> = ({ newsBlockData = [] }) => {
     return (
-        <div className="ml-[1.8vw] mr-[1.5vw] flex relative max-w-[80vw]">
-            <Carousel 
+        <div className='relative ml-[1.8vw] mr-[1.5vw] flex max-w-[80vw]'>
+            <Carousel
                 opts={{
-                    align: "start",
+                    align: 'start',
                     loop: false,
                 }}
-                className="w-full"
+                className='w-full'
             >
-                <CarouselContent className="gap-[1.5vw] ml-[1vw]">
+                <CarouselContent className='ml-[1vw] gap-[1.5vw]'>
                     {newsBlockData.length > 0 ? (
-                        newsBlockData.map((news) => (
-                            <Link key={news.id} href="/article" className="block">
+                        newsBlockData.map(news => (
+                            <Link key={news.id} href='/article' className='block'>
                                 <CarouselItem
-                                    className="min-w-[25.3vw] max-w-[26vw] h-[20rem] text-white flex flex-col text-lg rounded-2xl overflow-hidden p-0 bg-[rgb(var(--blackamber))]" 
-                                    style={{ scrollSnapAlign: "start" }}
+                                    className='text-lg flex h-[20rem] min-w-[25.3vw] max-w-[26vw] flex-col overflow-hidden rounded-2xl bg-[rgb(var(--blackamber))] p-0 text-white'
+                                    style={{ scrollSnapAlign: 'start' }}
                                 >
-                                    <div className="relative w-full h-[85%]">
+                                    <div className='group relative h-[85%] w-full overflow-hidden rounded-t-2xl'>
                                         <Image
-                                            placeholder="blur"
+                                            placeholder='blur'
                                             priority={true}
-                                            alt="news cover" 
-                                            src={news.articleCover} 
-                                            className={`w-full h-full object-cover rounded-t-2xl ${styles.newsBlockImage}`}
+                                            alt='news cover'
+                                            src={news.articleCover}
+                                            className='h-full w-full rounded-t-2xl object-cover transition-transform duration-300 ease-in-out group-hover:scale-110'
                                         />
-                                        <div className="absolute h-fit w-full bottom-0 left-0 w-full bg-black/60 p-2">
-                                            <p className="text-white h-fit text-sm font-medium text-16" >{news.title}</p>
+                                        <div className='absolute bottom-0 left-0 h-fit w-full bg-black/60 p-2'>
+                                            <p className='text-sm font-medium h-fit text-16 text-white'>{news.title}</p>
                                         </div>
                                     </div>
-                                    <p className="text-white h-fit text-sm ml-2 mt-2 text-18 w-full rounded-b-2xl bg-[rgb(var(--blackamber))]" >{news.author}</p>
+                                    <p className='text-sm ml-2 mt-2 h-fit w-full rounded-b-2xl bg-[rgb(var(--blackamber))] text-18 text-white'>
+                                        {news.author}
+                                    </p>
                                 </CarouselItem>
                             </Link>
                         ))
-                    ) : ( 
-                        <p className="text-gray-400">Новостей пока нет</p>
+                    ) : (
+                        <p className='text-gray-400'>Новостей пока нет</p>
                     )}
                 </CarouselContent>
-                <CarouselPrevious className="ml-[1vw]" />
-                <CarouselNext />
+                <CarouselPrevious className='ml-[1vw] bg-[rgb(var(--blackamber))] hover:bg-[rgb(var(--blackamber))]' />
+                <CarouselNext className='bg-[rgb(var(--blackamber))] hover:bg-[rgb(var(--blackamber))]' />
             </Carousel>
         </div>
     );
