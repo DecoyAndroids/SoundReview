@@ -1,4 +1,4 @@
-import { ArticlesContent } from "./articlesContent/ArticlesContent"
+import { ArticlesContent } from "./ArticlesContent"
 
 export const ArticlesContentHolder:React.FC = ()=> {
     return(
