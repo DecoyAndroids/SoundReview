@@ -11,28 +11,28 @@ export const  Sidebar = () => {
     const user = useAuthStore((state) => state.user);
     const userData = useAuthStore((state)=>state.userData)
     return(
-        <div className={`flex flex-col  ${styles.Sidebar}`}> 
+        <div className={`flex flex-col ${styles.Sidebar}`}> 
   
-                <Link href='/' className="rounded-[9px] min-w-fit">
+                <Link href='/' className="rounded-[9px] min-w-fit ">
                     <div className="rounded-[9px]">
                         <h3 className="text-[30px]">ПРОСТО УСЛЫШЬ</h3>
                     </div>
                 </Link>
                 <div className={`mt-[15px] ${styles.HrefContainer}`}>
-                        <Link href='/' className="pt-[12px] pb-[6px]">
-                        <h4 className="hover:text-28">Главная</h4>
+                        <Link href='/' className="pt-[12px] pb-[6px] ">
+                            <h4 className="text-[2rem] transition-all duration-400 hover:text-[2.2rem]">Главная</h4>
                         </Link>
                     <Separator className= {`w-[calc(100%-40px)] m-auto`}/>
-                        <Link href='/articles' className="pt-[15px] pb-[15px] hover:text-36">
-                        <h4 className="hover:text-28">Статьи</h4>
+                        <Link href='/articles' className="pt-[15px] pb-[15px] ">
+                            <h4 className="text-[2rem] transition-all duration-400 hover:text-[2.2rem]">Статьи</h4>
                         </Link>
                     <Separator className= {`w-[calc(100%-40px)] m-auto`}/>
-                        <Link href='/ratings' className="pt-[15px] pb-[15px] hover:text-36">
-                            <h4 className="hover:text-28">Лучшее</h4>
+                        <Link href='/ratings' className="pt-[15px] pb-[15px] ">
+                            <h4 className="text-[2rem] transition-all duration-400 hover:text-[2.2rem]">Лучшее</h4>
                         </Link>
                     <Separator className= {`w-[calc(100%-40px)] m-auto`}/>
                         <Link href='/playlists' className="pt-[15px] pb-[20px]">
-                        <h4 className="hover:text-28 ">Подборки</h4>
+                            <h4 className="text-[2rem] transition-all duration-400 hover:text-[2.2rem]">Подборки</h4>
                         </Link>
                 </div>
                 
