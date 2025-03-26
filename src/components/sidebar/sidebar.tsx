@@ -9,6 +9,7 @@ import { useAuthStore } from "~/store/authStore"
 
 export const  Sidebar = () => {
     const user = useAuthStore((state) => state.user);
+    const userData = useAuthStore((state)=>state.userData)
     return(
         <div className={`flex flex-col  ${styles.Sidebar}`}> 
   
@@ -36,9 +37,9 @@ export const  Sidebar = () => {
                 </div>
                 
         {user != null ?
-        <Link href='/profile' className={`flex mt-auto p-2 ${styles.ProfileContainer}`}>
+        <Link href={`/profile/${user.id}`} className={`flex mt-auto p-2 ${styles.ProfileContainer}`}>
             <Image src={userAvatarSrc} alt='Avatar' className={`${styles.Avatar}`} />
-            <h4 className={`${styles.UserName} grow text-[1.3vw]`}>{user.email!.split("@")[0]}</h4>   
+            <h4 className={`${styles.UserName} grow text-[1.3vw]`}>{userData?.display_name != undefined ? userData?.display_name : user?.email!.split("@")[0]}</h4>   
         </Link> 
         : 
         <Link href='/login' className={`flex mt-auto ${styles.ProfileContainer}`}>
