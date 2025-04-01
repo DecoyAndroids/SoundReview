@@ -1,18 +1,17 @@
 'use client'
 
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
-import Like from "~/public/generalIcons/Like.svg";
-import CommentIcon from "~/public/generalIcons/comment.svg";
+import Like from "~/public/generalIcons/Like.png";
+import CommentIcon from "~/public/generalIcons/comment.png";
 import { useState } from "react";
-import {IntArticleProps } from "~/app/types/propsTypes.module";
+import type {IntArticleProps } from "~/app/types/propsTypes.module";
 
 
 export const IntArticle: React.FC<IntArticleProps> = (props) => {
     const { IntArticleData } = { ...props };
     const [isLiked, setIsLiked] = useState(false);
     const [likeCount, setLikeCount] = useState(IntArticleData.LikeCount);
-    const LikeIcon: StaticImageData = Like;
 
     const handleLikeClick = () => {
         const newLikeStatus = !isLiked;
@@ -60,7 +59,7 @@ export const IntArticle: React.FC<IntArticleProps> = (props) => {
                                 onClick={handleLikeClick}
                                 className='transform cursor-pointer mr-[-0.5rem] transition-transform duration-200 hover:scale-110'
                             >
-                                <Image alt='like icon' src={LikeIcon} width={18} height={18} style={likeIconStyle}/>
+                                <Image alt='like icon' src={Like} width={18} height={18} style={likeIconStyle}/>
                             </span>
                             {likeCount}
                         <div className="flex items-center gap-1 mr-[-0.5rem] transform cursor-pointer transition-transform duration-200 hover:scale-110">

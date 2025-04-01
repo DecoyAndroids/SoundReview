@@ -3,20 +3,20 @@
 import { Separator } from '~/components/ui/separator';
 import { IntArticle } from './intArticle/IntArticle';
 import { IntArticlesData } from '~/app/data/intArticlesData';
-import { useEffect, useState } from 'react';
-import { IntArticleData } from '~/app/types/propsTypes.module';
+// import { useEffect, useState } from 'react';
+// import { IntArticleData } from '~/app/types/propsTypes.module';
 
 export const IntArticlesBlock: React.FC = () => {
-    const [discoverFull, setDiscoverFull] = useState<boolean>(false)
-    const [discoveredAlbumsFirstPart, setDiscoveredAlbumsFirstPart] = useState<IntArticleData[]>([])
-    const [discoveredAlbumsSecondPart, setDiscoveredAlbumsSecondPart] = useState<IntArticleData[]>([])
-    const handleChangeDiscoverState = () => {
-        setDiscoverFull(!discoverFull)
-    }
-    useEffect(()=>{
-        setDiscoveredAlbumsFirstPart(IntArticlesData.slice(0,4))
-        setDiscoveredAlbumsSecondPart(IntArticlesData.slice(4,8))
-    },[])
+    // const [discoverFull, setDiscoverFull] = useState<boolean>(false)
+    // const [discoveredAlbumsFirstPart, setDiscoveredAlbumsFirstPart] = useState<IntArticleData[]>([])
+    // const [discoveredAlbumsSecondPart, setDiscoveredAlbumsSecondPart] = useState<IntArticleData[]>([])
+    // const handleChangeDiscoverState = () => {
+    //     setDiscoverFull(!discoverFull)
+    // }
+    // useEffect(()=>{
+    //     setDiscoveredAlbumsFirstPart(IntArticlesData.slice(0,4))
+    //     setDiscoveredAlbumsSecondPart(IntArticlesData.slice(4,8))
+    // },[])
     return (
         <div className='ml-[30px] mr-[30px] mb-[30px]'>
             <div className='flex items-center justify-between pt-[1.5em]'>

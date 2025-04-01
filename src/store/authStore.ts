@@ -6,7 +6,6 @@ import { getUserDataByUID, UserData } from "~/app/actions/getUser";
 const supabase = createClient(process.env.supabaseUrl!, process.env.supabaseKey!);
 
 
-// Типизация Zustand-стейта
 interface AuthState {
   user: User | null;
   session: Session | null;
@@ -32,7 +31,11 @@ export const useAuthStore = create<AuthState>((set) => ({
   // Проверяем авторизацию при старте
   checkAuth: async () => {
     const { data } = await supabase.auth.getSession();
-    const userData: UserData | null = (await getUserDataByUID(data.session?.user.id!)) ?? null;
+    const userId = data.session?.user?.id; // Безопасно извлекаем ID
+    if (!userId) {
+      throw new Error("User ID is undefined");
+    }
+    const userData: UserData | null = (await getUserDataByUID(userId)) ?? null;
     set({
       user: data.session?.user ?? null, // ✅ Используем ?? вместо ||
       session: data.session ?? null, // ✅ Используем ?? вместо ||

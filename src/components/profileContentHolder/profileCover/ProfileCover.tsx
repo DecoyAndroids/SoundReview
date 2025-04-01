@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import { useAuthStore } from '~/store/authStore';
 import { useParams } from "next/navigation";
-import { notFound } from "next/navigation";
 import { getUserDataByUID, UserData } from '~/app/actions/getUser';
+
 
 import Avatar from '~/public/userAvatar.jpg';
 import { Button } from '~/components/ui/button';
@@ -36,7 +36,7 @@ export const ProfileCover: React.FC<ProfileInfoProps> = (props) => {
     const [userDataByUID, setUserDataByUID] = useState<UserData | null>(null)
 
     useEffect(()=>{
-        const fetchUserData = async ()=>{
+        void (async ()=>{
             try{
                 const userDataByUID = await getUserDataByUID(String(id))
                 console.log(userDataByUID)
@@ -44,9 +44,7 @@ export const ProfileCover: React.FC<ProfileInfoProps> = (props) => {
             }catch(error){
                 console.error(error)
             }
-        }
-
-        fetchUserData()
+        })();
 
     },[isUserAcc])
     const handleCoverUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -124,7 +122,7 @@ export const ProfileCover: React.FC<ProfileInfoProps> = (props) => {
                 <p className='text-[1.2rem] opacity-50'>c {ProfileInfoData.ProfileRegDate}</p>
                 <div className='flex'>
                     <Link href={'/ProfileSubscribers'}>
-                        <p className='text-[1.5rem] hover:underline'>{userData?.subscribers} подписчиков</p>
+                        <p className='text-[1.5rem] hover:underline'>{userData?.subscribers_count} подписчиков</p>
                     </Link>
                     <Link href={'/ProfileSubscriptions'}>
                         <p className='text-[1.5rem] ml-[0.8em] hover:underline mb-5'>{userData?.subscriptions_count} подписок</p>
