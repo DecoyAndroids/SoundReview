@@ -1,4 +1,4 @@
-import { ArticlesContentHolder } from "~/components/articlesContentHolder/ArticlesContentHolder";
+import { ArticlesContentHolder } from "~/components/articlesContentHolder/articlesContent/ArticlesContentHolder";
 
 
 export default function HomePage() {
