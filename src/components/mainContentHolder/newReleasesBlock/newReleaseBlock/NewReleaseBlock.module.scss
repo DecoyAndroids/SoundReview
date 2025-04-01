@@ -1,0 +1,23 @@
+.RateBarParent{
+    background:rgb(var(--text))
+}
+.NameBand:hover{
+    color:white;
+    text-decoration: underline;
+}
+.NameAlbum:hover{
+    color:white;
+    text-decoration: underline;
+}
+.NewReleaseCard{
+    transition: transform 0.3s ease-in-out;
+    &:hover{
+        transform: scale(1.05);
+    }
+}
+.likeIconStyle{
+    transition: transform 0.3s ease-in-out;
+    &:hover{
+        transform: scale(1.05);
+    }
+}

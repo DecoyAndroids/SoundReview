@@ -3,12 +3,15 @@
     column-gap:4;
     background-color: rgb(var(--codgray));
     border-radius: 9px;
-    padding: 6;
+    padding: 6px;
     transition: outline 0.2s ease-in-out;
     border: solid 2px rgb(var(--anthracitegrey));
     color:rgb(var(--text));
-    &:focus-within {
+    &:hover{
         border: solid 2px rgb(var(--sub-secondary));
+    }
+    &:focus-within {
+        border: solid 2px rgb(var(--text));
     }
     :last-child{
         background-color: rgb(var(--codgray));

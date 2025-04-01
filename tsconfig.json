@@ -8,6 +8,7 @@
     "resolveJsonModule": true,
     "moduleDetection": "force",
     "isolatedModules": true,
+    
 
     /* Strictness */
     "strict": true,
@@ -18,7 +19,7 @@
     "lib": ["dom", "dom.iterable", "ES2022"],
     "noEmit": true,
     "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "bundler",
     "jsx": "preserve",
     "plugins": [{ "name": "next" }],
     "incremental": true,
@@ -26,8 +27,10 @@
     /* Path Aliases */
     "baseUrl": ".",
     "paths": {
-      "axios/*": ["./src/*"]
-    }
+          "~/env": ["./env"],
+          "~/public/*": ["./public/*"],
+          "~/*": ["./src/*"]
+      },
   },
   "include": [
     ".eslintrc.cjs",
@@ -37,6 +40,6 @@
     "**/*.cjs",
     "**/*.js",
     ".next/types/**/*.ts"
-  ],
+, ".prettierrc.cjs"  ],
   "exclude": ["node_modules"]
 }

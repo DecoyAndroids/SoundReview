@@ -4,7 +4,7 @@ import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
     darkMode: ["class"],
-    content: ["./src/**/*.tsx"],
+    content: ["./src/**/*.tsx","./src/**/**/*.tsx"],
   theme: {
   	fontSize: {
   		'10': '0.625rem',
@@ -46,6 +46,7 @@ export default {
                 ]
   		},
   		colors: {
+			grey: 'rgb(var(--gray) / <alpha-value>)',
   			blackamber: 'rgb(var(--blackamber) / <alpha-value>)',
   			blackbrown: 'rgb(var(--blackbrown) / <alpha-value>)',
   			cursedblack: 'rgb(var(--cursedblack) / <alpha-value>)',
