@@ -18,7 +18,7 @@ export const NewReleaseBlock:React.FC<NewReleaseBlockProps> = (props) => {
       };
     return (
         <div className={`${styles.NewReleaseCard} w-[15.9rem]`}>
-            <Link href='/ablum' className=''>
+            <Link href={`/album/${NewReleaseBlockData.id}`} className=''>
                 {srcUrl ? 
                 <Image src={srcUrl} priority={true} placeholder="blur" blurDataURL='/api/placeholder' width={130} height={130} className={`${styles.CoverAlbum}`} alt='cover of album' style={{width:`15.9rem` , aspectRatio : 1/1, flexWrap: `wrap`}}/>
                 : <></>}

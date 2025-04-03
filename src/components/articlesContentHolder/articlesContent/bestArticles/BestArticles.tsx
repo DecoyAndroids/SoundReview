@@ -2,20 +2,20 @@
 import { Separator } from '~/components/ui/separator';
 import { BestArticle } from './BestArticle/BestArticle';
 import { BestArticlesData } from '~/app/data/bestArticlesData';
-import { useEffect, useState } from 'react';
-import { BestArticleData } from '~/app/types/propsTypes.module';
+//import { useState } from 'react'; //useEffect, 
+// import { BestArticleData } from '~/app/types/propsTypes.module';
 
 export const BestArticlesBlock: React.FC = () => {
-    const [discoverFull, setDiscoverFull] = useState<boolean>(false)
-    const [discoveredAlbumsFirstPart, setDiscoveredAlbumsFirstPart] = useState<BestArticleData[]>([])
-    const [discoveredAlbumsSecondPart, setDiscoveredAlbumsSecondPart] = useState<BestArticleData[]>([])
-    const handleChangeDiscoverState = () => {
-        setDiscoverFull(!discoverFull)
-    }
-    useEffect(()=>{
-        setDiscoveredAlbumsFirstPart(BestArticlesData.slice(0,4))
-        setDiscoveredAlbumsSecondPart(BestArticlesData.slice(4,8))
-    },[])
+    //const [discoverFull, setDiscoverFull] = useState<boolean>(false)
+    //const [discoveredAlbumsFirstPart, setDiscoveredAlbumsFirstPart] = useState<BestArticleData[]>([])
+    //const [discoveredAlbumsSecondPart, setDiscoveredAlbumsSecondPart] = useState<BestArticleData[]>([])
+    // const handleChangeDiscoverState = () => {
+    //     setDiscoverFull(!discoverFull)
+    // }
+    // useEffect(()=>{
+    //     //setDiscoveredAlbumsFirstPart(BestArticlesData.slice(0,4))
+    //     //setDiscoveredAlbumsSecondPart(BestArticlesData.slice(4,8))
+    // },[])
     return (
         <div className='ml-[30px] mr-[30px]'>
             <div className='flex items-center justify-between pt-[1.5em]'>

@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import { useAuthStore } from '~/store/authStore';
 import { useParams } from "next/navigation";
-import { notFound } from "next/navigation";
 import { getUserDataByUID, UserData } from '~/app/actions/getUser';
+
 
 import Avatar from '~/public/userAvatar.jpg';
 import { Button } from '~/components/ui/button';
@@ -36,7 +36,7 @@ export const ProfileCover: React.FC<ProfileInfoProps> = (props) => {
     const [userDataByUID, setUserDataByUID] = useState<UserData | null>(null)
 
     useEffect(()=>{
-        const fetchUserData = async ()=>{
+        void (async ()=>{
             try{
                 const userDataByUID = await getUserDataByUID(String(id))
                 console.log(userDataByUID)
@@ -44,9 +44,7 @@ export const ProfileCover: React.FC<ProfileInfoProps> = (props) => {
             }catch(error){
                 console.error(error)
             }
-        }
-
-        fetchUserData()
+        })();
 
     },[isUserAcc])
     const handleCoverUpload = (event: React.ChangeEvent<HTMLInputElement>) => {

@@ -1,16 +1,17 @@
 'use client';
 
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import Like from "~/public/generalIcons/Like.png";
-import CommentIcon from "~/public/popularReviews/comment.png";
+import CommentIcon from "~/public/generalIcons/comment.png";
 import { useState } from "react";
-import type { IntArticleProps } from "~/app/types/propsTypes.module";
+import type {IntArticleProps } from "~/app/types/propsTypes.module";
 
-export const IntArticle: React.FC<IntArticleProps> = ({ IntArticleData }) => {
-    const [isLiked, setIsLiked] = useState<boolean>(false);
-    const [likeCount, setLikeCount] = useState<number>(IntArticleData.LikeCount ?? 0);
-    const LikeIcon: StaticImageData = Like as StaticImageData;
+
+export const IntArticle: React.FC<IntArticleProps> = (props) => {
+    const { IntArticleData } = { ...props };
+    const [isLiked, setIsLiked] = useState(false);
+    const [likeCount, setLikeCount] = useState(IntArticleData.LikeCount);
 
     const handleLikeClick = () => {
         const newLikeStatus = !isLiked;
@@ -62,19 +63,13 @@ export const IntArticle: React.FC<IntArticleProps> = ({ IntArticleData }) => {
                 <div className="flex items-center justify-between text-gray-400 text-sm mt-3">
                     <span>{IntArticleData.data}</span>
                     <div className="flex items-center gap-3">
-                        <span
-                            onClick={handleLikeClick}
-                            className="transform cursor-pointer mr-[-0.5rem] transition-transform duration-200 hover:scale-110"
-                        >
-                            <Image
-                                alt="like icon"
-                                src={LikeIcon}
-                                width={18}
-                                height={18}
-                                style={likeIconStyle}
-                            />
-                        </span>
-                        {likeCount}
+                            <span
+                                onClick={handleLikeClick}
+                                className='transform cursor-pointer mr-[-0.5rem] transition-transform duration-200 hover:scale-110'
+                            >
+                                <Image alt='like icon' src={Like} width={18} height={18} style={likeIconStyle}/>
+                            </span>
+                            {likeCount}
                         <div className="flex items-center gap-1 mr-[-0.5rem] transform cursor-pointer transition-transform duration-200 hover:scale-110">
                             <Image src={CommentIcon} alt="Comments" width={18} height={18} />
                         </div>

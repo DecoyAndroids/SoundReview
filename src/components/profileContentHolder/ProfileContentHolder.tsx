@@ -1,5 +1,3 @@
-'use client';
-
 import { ProfilesInfoData } from '~/app/data/ProfileInfo';
 import { ProfileCover } from './profileCover/ProfileCover';
 
