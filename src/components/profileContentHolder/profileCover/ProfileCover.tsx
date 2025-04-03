@@ -124,7 +124,7 @@ export const ProfileCover: React.FC<ProfileInfoProps> = (props) => {
                 <p className='text-[1.2rem] opacity-50'>c {ProfileInfoData.ProfileRegDate}</p>
                 <div className='flex'>
                     <Link href={'/ProfileSubscribers'}>
-                        <p className='text-[1.5rem] hover:underline'>{userData?.subscribers} подписчиков</p>
+                        <p className='text-[1.5rem] hover:underline'>{userData?.subscribers_count} подписчиков</p>
                     </Link>
                     <Link href={'/ProfileSubscriptions'}>
                         <p className='text-[1.5rem] ml-[0.8em] hover:underline mb-5'>{userData?.subscriptions_count} подписок</p>
