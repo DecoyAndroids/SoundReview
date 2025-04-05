@@ -134,11 +134,11 @@ const Editor = () => {
     <LexicalComposer initialConfig={editorConfig}>
       <div className="editor-container">
         <ToolbarPlugin />
-        <div className="editor-inner">
+        <div className="bg-[rgb(var(--blackbrown))] p-2 rounded-lg h-fit">
           <RichTextPlugin
             contentEditable={
               <ContentEditable
-                className="editor-input"
+                className='h-fit'
                 aria-placeholder={placeholder}
                 placeholder={
                   <div className="editor-placeholder">{placeholder}</div>
@@ -149,7 +149,6 @@ const Editor = () => {
           />
           <HistoryPlugin />
           <AutoFocusPlugin />
-          <TreeViewPlugin />
         </div>
       </div>
     </LexicalComposer>

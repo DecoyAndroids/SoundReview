@@ -1,5 +1,6 @@
 'use client'
 import  dynamic  from "next/dynamic";
+import '~/../src/styles/globals.scss';
 
 const Editor = dynamic(() => import('~/components/createArticleHolder/CreateArticleHolder'), { ssr: false });
 

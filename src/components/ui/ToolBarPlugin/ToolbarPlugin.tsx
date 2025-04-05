@@ -1,19 +1,17 @@
-/**
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
 import {useLexicalComposerContext} from '@lexical/react/LexicalComposerContext';
 import {mergeRegister} from '@lexical/utils';
 import Image from 'next/image';
 import arrowCounterclockwise from './icons/arrow-counterclockwise.png'
 import arrowDockwise from './icons/arrow-dockwise.png'
 import boldTextIcon from './icons/boldTextIcon.png'
+import strikethroughIcon from './icons/strikethrough.png'
 import italicTextIcon from './icons/italicTextIcon.png'
 import unserlineTextIcon from './icons/underline.png'
-import styles from "./styles.module.css"
+import leftIcon from './icons/left-align.png'
+import rightIcon from './icons/right-alignment.png'
+import centerIcon from './icons/center.png'
+import justifyIcon from './icons/justify.png'
+
 import {
   $getSelection,
   $isRangeSelection,
@@ -46,12 +44,12 @@ export default function ToolbarPlugin() {
   const $updateToolbar = useCallback(() => {
     const selection = $getSelection();
     if ($isRangeSelection(selection)) {
-      // Update text format
       setIsBold(selection.hasFormat('bold'));
       setIsItalic(selection.hasFormat('italic'));
       setIsUnderline(selection.hasFormat('underline'));
       setIsStrikethrough(selection.hasFormat('strikethrough'));
     }
+
   }, []);
 
   useEffect(() => {
@@ -96,43 +94,43 @@ export default function ToolbarPlugin() {
           editor.dispatchCommand(UNDO_COMMAND, undefined);
         }}
         
-        className="toolbar-item spaced w-fit h-fit p-1 text-black bg-[rgb(var(--white))] m-2 hover:bg-[rgb(200,200,200)]"
+        className="toolbar-item spaced"
         aria-label="Undo">
-        <Image src={arrowCounterclockwise} alt='' width={30} height={30} className=''/>
+        <Image src={arrowCounterclockwise} alt='Undo' width={30} height={30} className=''/>
       </button>
       <button
         disabled={!canRedo}
         onClick={() => {
           editor.dispatchCommand(REDO_COMMAND, undefined);
         }}
-        className="toolbar-item spaced w-fit h-fit p-1 text-black bg-[rgb(var(--white))] m-2 hover:bg-[rgb(200,200,200)]"
+        className="toolbar-item spaced"
         aria-label="Redo">
-        <Image src={arrowDockwise} alt='' width={30} height={30} className=''/>
+        <Image src={arrowDockwise} alt='Redo' width={30} height={30} className=''/>
       </button>
       <Divider />
       <button
         onClick={() => {
           editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'bold');
         }}
-        className={'toolbar-item spaced w-fit h-fit p-1 text-black bg-[rgb(var(--white))] m-2 hover:bg-[rgb(200,200,200)]' + (isBold ? 'active bg-[rgb(180,180,180)]' : '') }
+        className={'toolbar-item spaced ' + (isBold ? 'active' : '') }
         aria-label="Format Bold">
-        <Image src={boldTextIcon} alt='' width={30} height={30} className='format bold'/>
+        <Image src={boldTextIcon} alt='Format Bold' width={30} height={30} className='format bold'/>
       </button>
       <button
         onClick={() => {
           editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'italic');
         }}
-        className={'toolbar-item spaced w-fit h-fit p-1 text-black bg-[rgb(var(--white))] m-2 hover:bg-[rgb(200,200,200)]' + (isItalic ? 'active bg-[rgb(180,180,180)]' : '')}
+        className={'toolbar-item spaced ' + (isItalic ? 'active' : '')}
         aria-label="Format Italics">
-        <Image src={italicTextIcon} alt='' width={30} height={30} className='format italic'/>
+        <Image src={italicTextIcon} alt='Format Italics' width={30} height={30} className='format italic'/>
       </button>
       <button
         onClick={() => {
           editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'underline');
         }}
-        className={'toolbar-item spaced w-fit h-fit p-1 text-black bg-[rgb(var(--white))] m-2 hover:bg-[rgb(200,200,200)] ' + (isUnderline ? 'active' : '')}
+        className={'toolbar-item spaced ' + (isUnderline ? 'active' : '')}
         aria-label="Format Underline">
-        <Image src={unserlineTextIcon} alt='' width={30} height={30} className='format underline'/>
+        <Image src={unserlineTextIcon} alt='Format Underline' width={30} height={30} className='format underline'/>
       </button>
       <button
         onClick={() => {
@@ -140,7 +138,7 @@ export default function ToolbarPlugin() {
         }}
         className={'toolbar-item spaced ' + (isStrikethrough ? 'active' : '')}
         aria-label="Format Strikethrough">
-        <i className="format strikethrough" />
+        <Image src={strikethroughIcon} alt='Format Strikethrough' width={30} height={30} className="format strikethrough" />
       </button>
       <Divider />
       <button
@@ -149,7 +147,7 @@ export default function ToolbarPlugin() {
         }}
         className="toolbar-item spaced"
         aria-label="Left Align">
-        <i className="format left-align" />
+        <Image src={leftIcon} alt='Left Align' width={30} height={30} className="format left-align" />
       </button>
       <button
         onClick={() => {
@@ -157,7 +155,7 @@ export default function ToolbarPlugin() {
         }}
         className="toolbar-item spaced"
         aria-label="Center Align">
-        <i className="format center-align" />
+        <Image src={centerIcon} alt='Center Align' width={30} height={30} className="format center-align" />
       </button>
       <button
         onClick={() => {
@@ -165,7 +163,7 @@ export default function ToolbarPlugin() {
         }}
         className="toolbar-item spaced"
         aria-label="Right Align">
-        <i className="format right-align" />
+        <Image src={rightIcon} alt='Right Align' width={30} height={30} className="format right-align" />
       </button>
       <button
         onClick={() => {
@@ -173,7 +171,7 @@ export default function ToolbarPlugin() {
         }}
         className="toolbar-item"
         aria-label="Justify Align">
-        <i className="format justify-align" />
+        <Image src={justifyIcon} alt='Justify Align' width={30} height={30} className="format justify-align" />
       </button>{' '}
     </div>
   );
