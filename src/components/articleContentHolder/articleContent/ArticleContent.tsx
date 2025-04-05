@@ -47,6 +47,7 @@ export const Article: React.FC = () => {
         })
         console.log(commentForm.actualComments)
      }
+    const inAcc = user?.id ? true : false 
     return (
         <div className="mx-10 grow">
             <Image src={articleCover} alt='articleCover' className="w-full m-auto mt-2 h-[20rem] brightness-60 rounded-lg object-cover"/>
@@ -81,11 +82,11 @@ export const Article: React.FC = () => {
                     {23}
                     <span className='text-sm p-1.5 pr-0'>1 февраля</span>
                 </div>
-                {!commentWindow ? 
+                {commentWindow ? 
                 <div className="w-[90%] m-auto">
                     <form className="flex gap-1" onSubmit={OnSubmit}>
                     <input placeholder="Напишите свой комментарий" className=' bg-[rgb(var(--anthracitegrey))] p-1 pl-2 outline-none rounded-lg w-full' onChange={onChange} name='textComment' value={commentForm.textComment}/>
-                    <button className='m-0 bg-[rgb(var(--anthracitegrey))] p-1 pl-2 pr-2 outline-none rounded-lg w-fit transition-transform duration-300 hover:bg-[rgb(var(--gray))]'>Отправить</button>
+                    <button className='m-0 bg-[rgb(var(--anthracitegrey))] p-1 pl-2 pr-2 outline-none rounded-lg w-fit transition-transform duration-300 hover:bg-[rgb(var(--gray))]' disabled={!inAcc}>Отправить</button>
                     </form>
                     {commentForm.actualComments.length > 0 ? 
                 <div className="mt-1 m-auto flex flex-col gap-3 mb-3">
