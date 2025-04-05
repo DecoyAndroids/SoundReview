@@ -28,7 +28,7 @@ export const IntArticle: React.FC<IntArticleProps> = (props) => {
 
     return (
         <div className="w-[330px] bg-[rgb(var(--gray))] rounded-t-lg overflow-hidden shadow-lg">
-            <Link href="/article">
+            <Link href={`/article/${IntArticleData.id}`}>
                 <div className="relative w-full h-[200px] overflow-hidden group">
                     <Image
                         src={IntArticleData.articleCover}
@@ -54,7 +54,7 @@ export const IntArticle: React.FC<IntArticleProps> = (props) => {
                         <span className="text-sm text-gray-300">{IntArticleData.author}</span>
                     </Link>
                 </div>
-                <Link href="/article">
+                <Link href={`/article/${IntArticleData.id}`}>
                     <h3 className="text-white text-lg font-semibold mt-2 hover:underline">
                         {IntArticleData.title}
                     </h3>
