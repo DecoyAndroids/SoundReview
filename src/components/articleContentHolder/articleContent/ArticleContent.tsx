@@ -8,6 +8,7 @@ import articleCover from "~/public/popularArticles/Lamar.jpg"
 import avatar from "~/public/popularArticles/avatar1.jpg"
 import { useAuthStore } from '~/store/authStore';
 import Avatar2 from '~/public/userAvatar.jpg';
+import { Separator } from "~/components/ui/separator";
 
 export const Article: React.FC = () => {
     const user = useAuthStore((state) => state.user);
@@ -52,7 +53,8 @@ export const Article: React.FC = () => {
         <div className="mx-10 grow">
             <Image src={articleCover} alt='articleCover' className="w-full m-auto mt-2 h-[20rem] brightness-60 rounded-lg object-cover"/>
             <div className=''>
-                <h3 className='mb-2 text-[3rem] w-fit font-500'>Как черная музыка изменила мир?</h3>
+                <h3 className='mb-[2.1rem] text-[3rem] w-fit font-500'>Как черная музыка изменила мир?</h3>
+                <Separator className="bg-[rgb(var(--sub))] h-[0.1rem] rounded-lg"/>
                 <Link href={'/userProfile'} className=' mt-5 flex items-center gap-3'>
                             <Image src={avatar} alt='Author' width={48} height={48} className='rounded-full' />
                             <span className='text-[1.4rem] font-[300] p-1.5 pl-0 hover:underline'>Евгений Горошин</span>
