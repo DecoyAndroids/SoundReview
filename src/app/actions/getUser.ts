@@ -1,7 +1,7 @@
 'use server';
-import { createClient,type User } from '@supabase/supabase-js';
+import {type User } from '@supabase/supabase-js';
 
-const supabase = createClient(process.env.supabaseUrl!, process.env.supabaseKey!);
+import { supabase } from '~/lib/supabaseClient';
 
 export interface UserData {
   UID: string;  
