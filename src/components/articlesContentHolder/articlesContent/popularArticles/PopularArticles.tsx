@@ -37,7 +37,7 @@ export const PopularArticles: React.FC = () => {
             </div>
             <div className='flex h-[20rem] overflow-hidden rounded-l-lg bg-[rgb(var(--gray))]'>
                 <div className='relative w-1/3 overflow-hidden'> 
-                    <Link href='/article' className='block group'>
+                    <Link href={`/article/${13}`} className='block group'> 
                         <Image
                             src={Lamar}
                             alt='Article Image'
@@ -70,7 +70,7 @@ export const PopularArticles: React.FC = () => {
                             {likeCount}
 
                             <span className='transform cursor-pointer transition-transform duration-200 hover:scale-110'>
-                                <Link href='/article' className='block'>
+                                <Link href={`/article/${13}`} className='block'>
                                   <Image alt='comment icon' src={Comment} width={18} height={18} />
                                 </Link>
                             </span>

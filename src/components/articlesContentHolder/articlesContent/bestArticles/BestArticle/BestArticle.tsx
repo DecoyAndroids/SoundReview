@@ -8,6 +8,7 @@ import { useState } from "react";
 import { type BestArticleProps } from "~/app/types/propsTypes.module";
 
 
+
 export const BestArticle: React.FC<BestArticleProps> = (props) => {
     const { BestArticleData } = { ...props };
     const [isLiked, setIsLiked] = useState(false);
@@ -28,7 +29,7 @@ export const BestArticle: React.FC<BestArticleProps> = (props) => {
 
     return (
         <div className="w-[330px] bg-[rgb(var(--gray))] rounded-t-lg overflow-hidden shadow-lg">
-            <Link href="/article">
+            <Link href={`/article/${BestArticleData.id}`}>
                 <div className="relative w-full h-[200px] overflow-hidden group">
                     <Image
                         src={BestArticleData.articleCover}
@@ -36,7 +37,7 @@ export const BestArticle: React.FC<BestArticleProps> = (props) => {
                         className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
                     />
                     <div className="absolute top-0 left-0 w-full bg-black/50 text-white text-sm p-2 flex items-center gap-2">
-                        <span className="text-lg">☰</span> Статья
+                        <span className="text-lg">☰</span> Статья 
                     </div>
                 </div>
             </Link>
@@ -54,7 +55,7 @@ export const BestArticle: React.FC<BestArticleProps> = (props) => {
                         <span className="text-sm text-gray-300">{BestArticleData.author}</span>
                     </Link>
                 </div>
-                <Link href="/article">
+                <Link href={`/article/${BestArticleData.id}`}>
                     <h3 className="text-white text-lg font-semibold mt-2 hover:underline">
                         {BestArticleData.title}
                     </h3>

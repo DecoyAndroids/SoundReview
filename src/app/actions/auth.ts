@@ -1,12 +1,12 @@
 'use server';
-import { createClient } from '@supabase/supabase-js'
+import { supabase } from '~/lib/supabaseClient';
 
 interface User {
   UID: string;
   email: string;
 }
 
-const supabase = createClient(process.env.supabaseUrl! , process.env.supabaseKey!)
+
 
 export async function signUp(email: string, password: string) {
   const { data, error } = await supabase.auth.signUp({ email, password });
