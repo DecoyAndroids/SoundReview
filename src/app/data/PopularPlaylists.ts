@@ -9,6 +9,26 @@ import CityPopSRC from '~/public/popularPlaylistssCover/cityPop.jpg'
 import KaplanSRC from '~/public/popularPlaylistssCover/kaplan.png'
 import PunkSRC from '~/public/popularPlaylistssCover/punk.png'
 import KizyakaSRC from '~/public/popularPlaylistssCover/kizyaka.jpg'
+import LanaSRC from '~/public/popularPlaylistssCover/ana_Del_ReySRC.jpg'
+import AnimeSRC from '~/public/popularPlaylistssCover/AnimeSRC.jpg'
+import ArcticSRC from '~/public/popularPlaylistssCover/ArcticSRC.jpg'
+import BluesSRC from '~/public/popularPlaylistssCover/BluesSRC.jpg'
+import BollywoodSRC from '~/public/popularPlaylistssCover/BollywoodSRC.jpg'
+import BritneySRC from '~/public/popularPlaylistssCover/britney_spears.jpg'
+import DaftSRC from '~/public/popularPlaylistssCover/DaftSRC.jpg'
+import EminemSRC from '~/public/popularPlaylistssCover/EminemSRC.jpg'
+import FolkSRC from '~/public/popularPlaylistssCover/FolkSRC.jpg'
+import IndieSRC from '~/public/popularPlaylistssCover/IndieSRC.jpg'
+import JazzSRC from '~/public/popularPlaylistssCover/JazzSRC.jpg'
+import LoFiSRC from '~/public/popularPlaylistssCover/LoFiSRC.jpg'
+import OperaSRC from '~/public/popularPlaylistssCover/OperaSRC.jpg'
+import QueenSRC from '~/public/popularPlaylistssCover/QueenSRC.jpg'
+import RammsteinSRC from '~/public/popularPlaylistssCover/RammsteinSRC.jpg'
+import RussianRapSRC from '~/public/popularPlaylistssCover/RussianRapSRC.jpg'
+import SovietSRC from '~/public/popularPlaylistssCover/SovietSRC.jpg'
+import SynthSRC from '~/public/popularPlaylistssCover/SynthSRC.jpg'
+import TravisSRC from '~/public/popularPlaylistssCover/TravisSRC.jpg'
+import WeekendSRC from '~/public/popularPlaylistssCover/WeekendSRC.jpg'
 
 
 
@@ -82,6 +102,146 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         NamePlaylist : 'ТОП крутых песен для машины',
         GenresPlaylist: ['Поп, ',"Хип-хоп, ","Рэп "], //Поп, хип-хоп, рэп
         LikeCount : 2135,
+    },
+    {
+        id: 11,
+        CoverSrc: WeekendSRC,
+        NamePlaylist: 'The Weeknd - Лучшее',
+        GenresPlaylist: ['R&B, ', 'Поп '],
+        LikeCount: 5982,
+    },
+    {
+        id: 12,
+        CoverSrc: ArcticSRC,
+        NamePlaylist: 'Арктические хиты (Arctic Monkeys)',
+        GenresPlaylist: ['Инди-рок, ', 'Альтернативный рок '],
+        LikeCount: 4871,
+    },
+    {
+        id: 13,
+        CoverSrc: TravisSRC,
+        NamePlaylist: 'Travis Scott Vibes',
+        GenresPlaylist: ['Трэп, ', 'Хип-хоп '],
+        LikeCount: 6523,
+    },
+    {
+        id: 14,
+        CoverSrc: LanaSRC,
+        NamePlaylist: 'Lana Del Rey Sadcore',
+        GenresPlaylist: ['Инди, ', 'Дрим-поп '],
+        LikeCount: 4784,
+    },
+    {
+        id: 15,
+        CoverSrc: RammsteinSRC,
+        NamePlaylist: 'Rammstein: Индастриал Жара',
+        GenresPlaylist: ['Индастриал, ', 'Метал '],
+        LikeCount: 5944,
+    },
+    {
+        id: 16,
+        CoverSrc: QueenSRC,
+        NamePlaylist: 'Queen - Вечная классика',
+        GenresPlaylist: ['Классический рок, ', 'Рок '],
+        LikeCount: 7345,
+    },
+    {
+        id: 17,
+        CoverSrc: BritneySRC,
+        NamePlaylist: 'Y2K поп хиты',
+        GenresPlaylist: ['Поп, ', 'Дэнс-поп '],
+        LikeCount: 4021,
+    },
+    {
+        id: 18,
+        CoverSrc: AnimeSRC,
+        NamePlaylist: 'Аниме опенинги 2000-х',
+        GenresPlaylist: ['J-Pop, ', 'Аниме '],
+        LikeCount: 3201,
+    },
+    {
+        id: 19,
+        CoverSrc: JazzSRC,
+        NamePlaylist: 'Джазовые вечера',
+        GenresPlaylist: ['Джаз '],
+        LikeCount: 2894,
+    },
+    {
+        id: 20,
+        CoverSrc: LoFiSRC,
+        NamePlaylist: 'Lo-fi для учебы и сна',
+        GenresPlaylist: ['Lo-fi, ', 'Инструментал '],
+        LikeCount: 6123,
+    },
+    {
+        id: 21,
+        CoverSrc: DaftSRC,
+        NamePlaylist: 'Daft Punk навсегда',
+        GenresPlaylist: ['Электроника, ', 'Хаус '],
+        LikeCount: 5032,
+    },
+    {
+        id: 22,
+        CoverSrc: EminemSRC,
+        NamePlaylist: 'Eminem - The Real Slim Shady',
+        GenresPlaylist: ['Хип-хоп, ', 'Рэп '],
+        LikeCount: 8201,
+    },
+    {
+        id: 23,
+        CoverSrc: SovietSRC,
+        NamePlaylist: 'Советская эстрада',
+        GenresPlaylist: ['Ретро, ', 'Поп '],
+        LikeCount: 2902,
+    },
+    {
+        id: 24,
+        CoverSrc: FolkSRC,
+        NamePlaylist: 'Фолк для душевных вечеров',
+        GenresPlaylist: ['Фолк, ', 'Акустика '],
+        LikeCount: 1945,
+    },
+    {
+        id: 25,
+        CoverSrc: SynthSRC,
+        NamePlaylist: 'Синтвейв 80-х',
+        GenresPlaylist: ['Синтвейв, ', 'Электроника '],
+        LikeCount: 3983,
+    },
+    {
+        id: 26,
+        CoverSrc: RussianRapSRC,
+        NamePlaylist: 'Новый русский рэп',
+        GenresPlaylist: ['Рэп, ', 'Хип-хоп '],
+        LikeCount: 5200,
+    },
+    {
+        id: 27,
+        CoverSrc: BluesSRC,
+        NamePlaylist: 'Блюз для души',
+        GenresPlaylist: ['Блюз '],
+        LikeCount: 2711,
+    },
+    {
+        id: 28,
+        CoverSrc: IndieSRC,
+        NamePlaylist: 'Инди хиты 2020-х',
+        GenresPlaylist: ['Инди, ', 'Поп '],
+        LikeCount: 3545,
+    },
+    {
+        id: 29,
+        CoverSrc: BollywoodSRC,
+        NamePlaylist: 'Индийские танцы',
+        GenresPlaylist: ['Болливуд, ', 'Поп '],
+        LikeCount: 4633,
+    },
+    {
+        id: 30,
+        CoverSrc: OperaSRC,
+        NamePlaylist: 'Лучшее из оперы',
+        GenresPlaylist: ['Опера, ', 'Классика '],
+        LikeCount: 1422,
     },
 ]
 

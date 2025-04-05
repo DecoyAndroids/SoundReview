@@ -1,15 +1,18 @@
 'use client';
 
 import Image, { StaticImageData } from 'next/image';
+import { useAuthStore } from '~/store/authStore';
 import Like from '~/public/popularReviews/Like.png';
 import Comment from '~/public/popularReviews/comment.png';
 import Lamar from '~/public/popularArticles/Lamar.jpg';
 import Avatar1 from '~/public/popularArticles/avatar1.jpg';
 import { useState } from 'react';
 import Link from 'next/link';
+import { Button } from '~/components/ui/button';
 
 export const PopularArticles: React.FC = () => {
     const [isLiked, setIsLiked] = useState(false);
+    const user = useAuthStore((state) => state.session);
     const [likeCount, setLikeCount] = useState(999);
     const LikeIcon: StaticImageData = Like;
 
@@ -26,7 +29,12 @@ export const PopularArticles: React.FC = () => {
 
     return (
         <div className='flex h-full flex-col ml-[30px] mr-[30px]'>
+            <div className='flex grow'>
             <h1 className='text-[2rem] font-500'>Популярное</h1>
+            {/* {user?.access_token ? 
+            <Link href='createArticle' className='ml-auto'> <Button className='ml-auto w-fit mt-1.5 hover:bg-[rgb(var(--white))] hover:text-[rgb(var(--cursedblack))] transition duration-300'>Написать статью</Button></Link>
+            : <></> } */}
+            </div>
             <div className='flex h-[20rem] overflow-hidden rounded-l-lg bg-[rgb(var(--gray))]'>
                 <div className='relative w-1/3 overflow-hidden'> 
                     <Link href={`/article/${13}`} className='block group'> 
