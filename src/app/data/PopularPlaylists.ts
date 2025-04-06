@@ -34,6 +34,7 @@ import WeekendSRC from '~/public/popularPlaylistssCover/WeekendSRC.jpg'
 
 export const PopularPlaylistBlockData : PopularPlaylistData[] = [
     {
+        AuthorName: "ShadowPulse",
         id: 1,
         CoverSrc : KukriniksSRC,
         NamePlaylist : 'Сборник всех песен кукрыниксов',
@@ -41,6 +42,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount : 3456,
     },
     {
+        AuthorName: "NeonSpecter",
         id: 2,
         CoverSrc : PhonkSRC,
         NamePlaylist : 'Бразильский фонк для зала',
@@ -48,6 +50,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount : 4534,
     },
     {
+        AuthorName: "FrostViper",
         id: 3,
         CoverSrc : NirvanaSRC,
         NamePlaylist : 'Nirvana Greatest Hits',
@@ -55,6 +58,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount : 3673,
     },
     {
+        AuthorName: "CrimsonNova",
         id: 4,
         CoverSrc : DialoiSRC,
         NamePlaylist : 'Самое Зажигательное для дачи',
@@ -62,6 +66,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount : 2134,
     },
     {
+        AuthorName: "VoidCrafter",
         id: 5,
         CoverSrc : MacanSRC,
         NamePlaylist : 'ТОП крутых песен для машины',
@@ -69,6 +74,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount : 5623,
     },
     {
+        AuthorName: "EchoWraith",
         id: 6,
         CoverSrc : ChiefKeefSRC,
         NamePlaylist : 'Чиф киф лучшее за всю карьеру',
@@ -76,6 +82,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount : 3245,
     },
     {
+        AuthorName: "MysticFang",
         id: 7,
         CoverSrc : CityPopSRC,
         NamePlaylist : 'Японский CityPop 80-х',
@@ -83,6 +90,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount : 4653,
     },
     {
+        AuthorName: "CyberHowl",
         id: 8,
         CoverSrc : KaplanSRC,
         NamePlaylist : 'Все песни Стрыкало',
@@ -90,6 +98,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount : 1233,
     },
     {
+        AuthorName: "PhantomDrift",
         id: 9,
         CoverSrc : PunkSRC,
         NamePlaylist : 'ПАНКРОК на все времена',
@@ -97,6 +106,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount : 4144,
     },
     {
+        AuthorName: "StormRider",
         id: 10,
         CoverSrc : KizyakaSRC,
         NamePlaylist : 'ТОП крутых песен для машины',
@@ -104,6 +114,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount : 2135,
     },
     {
+        AuthorName: "DarkVortex",
         id: 11,
         CoverSrc: WeekendSRC,
         NamePlaylist: 'The Weeknd - Лучшее',
@@ -111,6 +122,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 5982,
     },
     {
+        AuthorName: "IronBlaze",
         id: 12,
         CoverSrc: ArcticSRC,
         NamePlaylist: 'Арктические хиты (Arctic Monkeys)',
@@ -118,6 +130,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 4871,
     },
     {
+        AuthorName: "SilentRune",
         id: 13,
         CoverSrc: TravisSRC,
         NamePlaylist: 'Travis Scott Vibes',
@@ -125,6 +138,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 6523,
     },
     {
+        AuthorName: "GlitchSoul",
         id: 14,
         CoverSrc: LanaSRC,
         NamePlaylist: 'Lana Del Rey Sadcore',
@@ -132,6 +146,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 4784,
     },
     {
+        AuthorName: "NovaWhisper",
         id: 15,
         CoverSrc: RammsteinSRC,
         NamePlaylist: 'Rammstein: Индастриал Жара',
@@ -139,6 +154,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 5944,
     },
     {
+        AuthorName: "EmberSpire",
         id: 16,
         CoverSrc: QueenSRC,
         NamePlaylist: 'Queen - Вечная классика',
@@ -146,6 +162,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 7345,
     },
     {
+        AuthorName: "IceReign",
         id: 17,
         CoverSrc: BritneySRC,
         NamePlaylist: 'Y2K поп хиты',
@@ -153,6 +170,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 4021,
     },
     {
+        AuthorName: "QuantumShade",
         id: 18,
         CoverSrc: AnimeSRC,
         NamePlaylist: 'Аниме опенинги 2000-х',
@@ -160,6 +178,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 3201,
     },
     {
+        AuthorName: "PixelSnare",
         id: 19,
         CoverSrc: JazzSRC,
         NamePlaylist: 'Джазовые вечера',
@@ -167,6 +186,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 2894,
     },
     {
+        AuthorName: "ThunderGlyph",
         id: 20,
         CoverSrc: LoFiSRC,
         NamePlaylist: 'Lo-fi для учебы и сна',
@@ -174,6 +194,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 6123,
     },
     {
+        AuthorName: "LunarHex",
         id: 21,
         CoverSrc: DaftSRC,
         NamePlaylist: 'Daft Punk навсегда',
@@ -181,6 +202,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 5032,
     },
     {
+        AuthorName: "BlazeStriker",
         id: 22,
         CoverSrc: EminemSRC,
         NamePlaylist: 'Eminem - The Real Slim Shady',
@@ -188,6 +210,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 8201,
     },
     {
+        AuthorName: "ArcaneVolt",
         id: 23,
         CoverSrc: SovietSRC,
         NamePlaylist: 'Советская эстрада',
@@ -195,6 +218,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 2902,
     },
     {
+        AuthorName: "VortexSniper",
         id: 24,
         CoverSrc: FolkSRC,
         NamePlaylist: 'Фолк для душевных вечеров',
@@ -202,6 +226,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 1945,
     },
     {
+        AuthorName: "GravityFreak",
         id: 25,
         CoverSrc: SynthSRC,
         NamePlaylist: 'Синтвейв 80-х',
@@ -209,6 +234,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 3983,
     },
     {
+        AuthorName: "ChillNova",
         id: 26,
         CoverSrc: RussianRapSRC,
         NamePlaylist: 'Новый русский рэп',
@@ -216,6 +242,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 5200,
     },
     {
+        AuthorName: "TitanSpark",
         id: 27,
         CoverSrc: BluesSRC,
         NamePlaylist: 'Блюз для души',
@@ -223,6 +250,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 2711,
     },
     {
+        AuthorName: "ZephyrRogue",
         id: 28,
         CoverSrc: IndieSRC,
         NamePlaylist: 'Инди хиты 2020-х',
@@ -230,6 +258,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 3545,
     },
     {
+        AuthorName: "NightCoder",
         id: 29,
         CoverSrc: BollywoodSRC,
         NamePlaylist: 'Индийские танцы',
@@ -237,6 +266,7 @@ export const PopularPlaylistBlockData : PopularPlaylistData[] = [
         LikeCount: 4633,
     },
     {
+        AuthorName: "WarpSeeker",
         id: 30,
         CoverSrc: OperaSRC,
         NamePlaylist: 'Лучшее из оперы',
