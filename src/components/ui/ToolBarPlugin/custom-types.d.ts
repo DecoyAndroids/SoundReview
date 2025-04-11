@@ -1,6 +1,7 @@
 // import { Descendant, BaseEditor, BaseRange, Range, Element } from 'slate'
 // import { ReactEditor } from 'slate-react'
 // import { HistoryEditor } from 'slate-history'
+// import { RenderElementProps } from 'slate-react';
 
 // export type BlockQuoteElement = {
 //   type: 'block-quote'
@@ -184,13 +185,11 @@
 //     nodeToDecorations?: Map<Element, Range[]>
 //   }
 
-// declare module 'slate' {
-//   interface CustomTypes {
-//     Editor: CustomEditor
-//     Element: CustomElement
-//     Text: CustomText
-//     Range: BaseRange & {
-//       [key: string]: unknown
+//   declare module 'slate' {
+//     interface CustomTypes {
+//       Editor: CustomEditor
+//       Element: CustomElement
+//       Text: CustomText
+//       Range: BaseRange & Record<string, unknown>
 //     }
 //   }
-// }

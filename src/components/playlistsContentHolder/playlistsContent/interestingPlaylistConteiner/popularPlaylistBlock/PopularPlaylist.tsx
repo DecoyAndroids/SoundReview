@@ -41,13 +41,14 @@ export const PopularPlaylistBlock: React.FC<PopularPlaylistProps> = (props) => {
 
     return (
         <div>
-            <Link href="/playlist">
+            <Link href={`/playlist/${PopularPlaylistData.id}`}>
                 <Image
                     alt="Cover of playlist"
                     src={PopularPlaylistData.CoverSrc}
                     priority
                     placeholder="blur"
                     width={256}
+                    quality={90}
                     style={{ width: "13vw", aspectRatio: "1/1", flexWrap: "wrap" }}
                     className={`rounded-[9px] ${styles.PopularPlaylistCard}`}
                 />

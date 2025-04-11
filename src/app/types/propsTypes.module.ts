@@ -88,6 +88,7 @@ export  type PopularPlaylistsProps = {
 
 export type PopularPlaylistData = {
     id: number;
+    AuthorName: string;
     CoverSrc : StaticImageData,
     NamePlaylist : string,
     GenresPlaylist: Array<string>,
