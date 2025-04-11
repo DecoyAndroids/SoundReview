@@ -141,9 +141,11 @@ export const RateWindow:React.FC<RateWindowProps> = (props) => {
                         (!rateWindowState.inAccNotice ?
                             (!userRatingQuery.data?.isRated ?
                                 <div className="h-fit bg-[rgb(var(--gray))] relative rounded-lg flex flex-col gap-1" >
-                                    <div className="h-fit bg-[rgb(var(--cursedblack))] w-[80%] m-auto flex flex-col mt-3 mb-3">
-                                        <div className="h-1 rounded-lg mb-[-0.1rem]" style={{width:String(Number(rateWindowState.actualRate[0]))+'%', backgroundColor:getColor(rateWindowState.actualRate[0] ?? 50)}}/>
-                                        <Slider defaultValue={[50]} max={100} step={1} onValueChange={SliderOnChange}  className="bg-black rounded-lg " name='actualRate' />                           
+                                    <div className="h-fit w-[80%] m-auto flex flex-col mt-3 mb-3">
+                                        <div className="h-1 rounded-lg mb-[-0.3rem] " style={{width:String(Number(rateWindowState.actualRate[0]))+'%', backgroundColor:getColor(rateWindowState.actualRate[0] ?? 50)}}/>
+                                        <Slider defaultValue={[50]} max={100} step={1} onValueChange={SliderOnChange}  className="rounded-lg" name='actualRate' />  
+                                        
+                                                                 
                                     </div>
                                     <button className="absolute top-0 right-0 hover:bg-[rgb(var(--sub))] p-1 m-1 mt-0" onClick={changeRateWindowState}>свернуть</button> 
                                     <button className=" bg-[rgb(var(--gray))] w-full text-[1.2rem] hover:bg-[rgb(var(--sub))] p-6" onClick={handlePostRating} > Поставить оценку {rateWindowState.actualRate}</button>                     
