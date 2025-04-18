@@ -39,12 +39,12 @@ export const AlbumDataMiniBlock:React.FC = () => {
         try {
             if (userLikeQuery.data?.LikeRow === true) {
                 await updateLike.mutateAsync({ albumId: albumIdSafe, userId: userIdSafe, isLiked: !userLikeQuery.data?.isLiked,})
-                queryClient.invalidateQueries({queryKey: ['albumCountLikes', albumId],});
-                queryClient.invalidateQueries({queryKey: ['albumUserLike', albumId],});
+                await queryClient.invalidateQueries({queryKey: ['albumCountLikes', albumId],});
+                await queryClient.invalidateQueries({queryKey: ['albumUserLike', albumId],});
             } else {
                 await postLike.mutateAsync({ albumId: albumIdSafe, userId: userIdSafe, isLiked: true,})
-                queryClient.invalidateQueries({queryKey: ['albumCountLikes', albumId],});
-                queryClient.invalidateQueries({queryKey: ['albumUserLike', albumId],});
+                await queryClient.invalidateQueries({queryKey: ['albumCountLikes', albumId],});
+                await queryClient.invalidateQueries({queryKey: ['albumUserLike', albumId],});
             }
         } catch (error) {
             console.error('Ошибка при лайке:', error)
@@ -76,7 +76,7 @@ export const AlbumDataMiniBlock:React.FC = () => {
                                     ? { filter: 'invert(40%) sepia(100%) saturate(2000%) hue-rotate(-40deg)' }
                                     : {}}/>
                         </button>
-                        <p className="text-[1.2rem] ">{LikeCount.data?.totalLikes! ?? 0}</p>
+                        <p className="text-[1.2rem] ">{LikeCount.data?.totalLikes ?? 0}</p>
                     </div>
                     :
                     <div>

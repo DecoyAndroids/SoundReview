@@ -28,10 +28,10 @@ export const TracksTable:React.FC<TracksTableProps> = (props)=>{
             if(LikedTracks.data?.some(like => like.track_id == trackId)){
                 const likedTrack = LikedTracks.data?.find(item => item.track_id === trackId)
                 await updateLike.mutateAsync({albumId:albumIdSafe, trackId: trackId, userId:userIdSafe, isLiked: !likedTrack?.is_liked})
-                queryClient.invalidateQueries({queryKey: ['TrackInAlbumUserLike', albumId],});
+                await queryClient.invalidateQueries({queryKey: ['TrackInAlbumUserLike', albumId],});
             }else{
                 await postLike.mutateAsync({albumId:albumIdSafe, trackId: trackId, userId:userIdSafe, isLiked: true})
-                queryClient.invalidateQueries({queryKey: ['TrackInAlbumUserLike', albumId],});
+                await queryClient.invalidateQueries({queryKey: ['TrackInAlbumUserLike', albumId],});
             }
         }catch (error) {
             console.error('Ошибка при лайке:', error)
