@@ -270,3 +270,7 @@ export type AlbumDataResponse = {
     label: string;
     popularity: number;
   }
+
+export type TracksTableProps= {
+    AlbumData : AlbumDataResponse
+}

@@ -3,7 +3,7 @@ import type { NewReleaseBlockProps } from "~/app/types/propsTypes.module"
 import { Separator } from "~/components/ui/separator"
 import Image from "next/image"
 import Link from 'next/link'
-import { useAlbumAverageRating } from '~/hooks/useAlbumAverageRating'
+import { useAlbumAverageRating } from '~/hooks/AlbumHooks/useAlbumAverageRating'
 import { useParams } from 'next/navigation'
 
 

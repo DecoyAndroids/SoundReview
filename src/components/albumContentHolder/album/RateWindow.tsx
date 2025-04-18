@@ -5,12 +5,13 @@ import { useState } from "react"
 import { Separator } from "~/components/ui/separator"
 import { useAuthStore } from '~/store/authStore';
 import { Slider } from "~/components/ui/shadcn/slider"
-import { useAlbumPostRating} from "~/hooks/useAlbumPostRating"
-import { useAlbumAverageRating } from "~/hooks/useAlbumAverageRating"
-import { useAlbumUserRating } from "~/hooks/useAlbumUserRating"
-import { useAlbumUpdateRating } from "~/hooks/useAlbumUpdateRating"
+import { useAlbumPostRating} from "~/hooks/AlbumHooks/useAlbumPostRating"
+import { useAlbumAverageRating } from "~/hooks/AlbumHooks/useAlbumAverageRating"
+import { useAlbumUserRating } from "~/hooks/AlbumHooks/useAlbumUserRating"
+import { useAlbumUpdateRating } from "~/hooks/AlbumHooks/useAlbumUpdateRating"
 import { useRouter } from 'next/navigation'
 import { RateWindowProps } from "~/app/types/propsTypes.module"
+import { AlbumDataMiniBlock } from "./AlbumDataMiniBlock"
 
 export const getColor = (value: number): string => {
     const clampedValue = Math.min(100, Math.max(0, value));
@@ -43,8 +44,10 @@ export const RateWindow:React.FC<RateWindowProps> = (props) => {
     const albumId = Array.isArray(id) ? id[0] : id ?? '';
     const albumIdSafe = albumId ?? '';
     const userIdSafe = user?.id ?? '';
+
     const averageRatingQuery = useAlbumAverageRating(albumIdSafe);
     const userRatingQuery = useAlbumUserRating(albumIdSafe, userIdSafe, {enabled: !!albumIdSafe && !!userIdSafe,}); 
+
     const { mutate: postRating, isPending } = useAlbumPostRating()
     const { mutate: updateRating} = useAlbumUpdateRating()
     
@@ -85,7 +88,8 @@ export const RateWindow:React.FC<RateWindowProps> = (props) => {
 
     return(
         <div className="flex grow flex-col gap-3">
-                    <div className="bg-[rgb(var(--gray))] p-3 py-4 justify-around rounded-lg flex w-full gap-4 h-fit w-fit">
+                    <div>
+                        <div className="bg-[rgb(var(--gray))] p-3 pt-4 pb-0 justify-around rounded-t-lg flex w-full gap-4 h-fit w-fit">
                         {/* <div className="flex flex-col 2xl:flex-row ">
                             <div>
                             <p className="text-[1.2rem] mb-[-0.8rem] h-fit">оценка критиков</p>
@@ -98,6 +102,7 @@ export const RateWindow:React.FC<RateWindowProps> = (props) => {
                             </div>
                             <p className="my-auto font-[300] text-[rgb(var(--sub))] text-[1rem]">на основе <b>1700</b> оценок</p>    
                         </div> */}
+                        
                         {!averageRatingQuery.isLoading ? 
                             <div className="flex flex-col 2xl:flex-row">
                                 <div>
@@ -107,7 +112,7 @@ export const RateWindow:React.FC<RateWindowProps> = (props) => {
                             </div>
                         : <></>
                         }
-                        <Separator orientation="vertical" className="bg-[rgb(var(--blackbrown))]"/>
+                        <Separator orientation="vertical" className="bg-[rgb(var(--sub))] z-10"/>
                         {!averageRatingQuery.isLoading ?  
                             averageRatingQuery.data!.average !==  0 ? 
                                 <div className="gap-2 flex flex-col 2xl:flex-row ">
@@ -128,6 +133,8 @@ export const RateWindow:React.FC<RateWindowProps> = (props) => {
                                     </div>
                                 </div>
                         :<></>}
+                        </div>
+                        <AlbumDataMiniBlock/>
                     </div>
                     <div>
                         <Link className="bg-[rgb(var(--gray))] p-2 rounded-lg hover:bg-[rgb(var(--spotify))] transform duration-300" href={SpotiHref ?? ''}>Spotify</Link>
