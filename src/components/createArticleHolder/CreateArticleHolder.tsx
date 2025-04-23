@@ -27,7 +27,7 @@ import ToolbarPlugin from '../ui/ToolBarPlugin/ToolbarPlugin';
 import { parseAllowedColor, parseAllowedFontSize } from '../ui/ToolBarPlugin/styleConfig';
 import ArticleTitleInput from './components/ArticleTitleInput';
 import ArticleCoverUpload from './components/ArticleCoverUpload';
-import { Label } from '../../../axios/components/ui/label';
+import { Label } from '~/components/ui/shadcn/label';
 import { useEffect, useState } from 'react';
 import { CreateArticleStore } from '~/store/createArticleStore';
 

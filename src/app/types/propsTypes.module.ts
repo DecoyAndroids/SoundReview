@@ -274,3 +274,10 @@ export type AlbumDataResponse = {
 export type TracksTableProps= {
     AlbumData : AlbumDataResponse
 }
+
+export type CreateArticleDataResponse = {
+    id: string;
+    user_id: string;
+    article_name: string;
+    article_text: string;
+  };

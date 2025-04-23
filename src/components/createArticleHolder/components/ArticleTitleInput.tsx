@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Input } from '../../../../axios/components/ui/input';
-import { Label } from '../../../../axios/components/ui/label';
+import { Input } from '~/components/ui/shadcn/input';
+import { Label } from '~/components/ui/shadcn/label';
 import { CreateArticleStore } from '~/store/createArticleStore';
 import { Separator } from '~/components/ui/separator';
 
