@@ -154,3 +154,15 @@ export type IntArticleData = {
     LikeCount: number;
     CommentCount: number;
 } 
+
+export type CreateArticleDataResponse = {
+    id: string;
+    user_id: string;
+    article_name: string;
+    article_text: string;
+}
+export type InsertArticleData = {
+    user_id: string;
+    article_name: string;
+    article_text: string;
+  };
