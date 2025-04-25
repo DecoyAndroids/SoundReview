@@ -31,9 +31,9 @@ export const PopularArticles: React.FC = () => {
         <div className='flex h-full flex-col ml-[30px] mr-[30px]'>
             <div className='flex grow'>
             <h1 className='text-[2rem] font-500'>Популярное</h1>
-            {/* {user?.access_token ? 
+            {user?.access_token ? 
             <Link href='createArticle' className='ml-auto'> <Button className='ml-auto w-fit mt-1.5 hover:bg-[rgb(var(--white))] hover:text-[rgb(var(--cursedblack))] transition duration-300'>Написать статью</Button></Link>
-            : <></> } */}
+            : <></> }
             </div>
             <div className='flex h-[20rem] overflow-hidden rounded-l-lg bg-[rgb(var(--gray))]'>
                 <div className='relative w-1/3 overflow-hidden'> 
