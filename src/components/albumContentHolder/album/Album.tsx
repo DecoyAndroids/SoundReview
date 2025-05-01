@@ -4,7 +4,7 @@ import { useParams } from "next/navigation"
 import {useEffect, useState } from "react"
 import { Separator } from "~/components/ui/separator"
 import albumPlaceholderCover from '~/public/newReleasesCover/album_placeholder.jpg'
-import { AlbumDataResponse } from "~/app/types/propsTypes.module"
+import { type AlbumDataResponse } from "~/app/types/propsTypes.module"
 import { RateWindow } from "./RateWindow"
 import { TracksTable } from "./TracksTable"
 
@@ -39,7 +39,7 @@ export const Album:React.FC = ()=> {
                 <Image src={AlbumData?.images[0]?.url} priority={true} placeholder="blur" blurDataURL='/api/placeholder' alt='album cover' width={130} height={130} className="w-[18vw] h-fit"/>
                 : 
                 <Image src={albumPlaceholderCover} width={130} height={130} alt='album cover' className="w-[18vw] h-fit"/>}    
-                <RateWindow SpotiHref={AlbumData?.external_urls.spotify ?? ''}/>
+                <RateWindow SpotiHref={AlbumData?.external_urls.spotify ?? ''} albumData={AlbumData!}/>
                 
                 <div className="flex flex-col border border-[rgb(var(--gray))] ml-auto gap-1 h-fit rounded-lg p-3">
                     <div>

@@ -1,5 +1,4 @@
 import type { StaticImageData } from "next/image"
-import { DO_NOT_USE_OR_YOU_WILL_BE_FIRED_EXPERIMENTAL_FORM_ACTIONS } from "react"
 
 export type NewReleaseBlockProps = {
     NewReleaseBlockData : NewReleaseBlockData
@@ -175,6 +174,7 @@ export type AlbumCardProps = {
 
 export type RateWindowProps = {
     SpotiHref : string
+    albumData : AlbumDataResponse
 }
 
 export type AlbumDataResponse = {
@@ -274,3 +274,13 @@ export type AlbumDataResponse = {
 export type TracksTableProps= {
     AlbumData : AlbumDataResponse
 }
+
+export type Track = {
+    track_id: string;
+    is_liked: boolean;
+    album_id: string;
+    track_name: string;
+    authors: string[];
+    duration_ms: number;
+    updated_from_profile: boolean;
+  };

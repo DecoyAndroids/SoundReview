@@ -20,6 +20,9 @@ import { PopularReviewsBlockData } from '~/app/data/PopularReviews';
 import { PopularPlaylistBlockData } from '~/app/data/PopularPlaylists'
 import { ProfilePlaylists } from './profilePlaylists/ProfilePlaylists';
 
+import { ProfileFavoriteTracks } from './profileFavoriteTracks/ProfileFavoriteTracks';
+import { ProfileFavoriteAlbums } from './profileFavoriteAlbums/ProfileFavoriteAlbums';
+
 export const ProfileCover: React.FC<ProfileInfoProps> = (props) => {
     const { ProfileInfoData } = { ...props };
 
@@ -35,11 +38,23 @@ export const ProfileCover: React.FC<ProfileInfoProps> = (props) => {
     const isUserAcc = user?.id == id ? true : false
     const [userDataByUID, setUserDataByUID] = useState<UserData | null>(null)
 
+    function formatDate(isoString?:string) {
+        if (isoString){
+        const date = new Date(isoString);
+
+        return new Intl.DateTimeFormat('ru-RU', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        }).format(date);
+        }
+      }
+      
+
     useEffect(()=>{
         void (async ()=>{
             try{
                 const userDataByUID = await getUserDataByUID(String(id))
-                console.log(userDataByUID)
                 setUserDataByUID(userDataByUID)
             }catch(error){
                 console.error(error)
@@ -67,14 +82,6 @@ export const ProfileCover: React.FC<ProfileInfoProps> = (props) => {
         router.push('/');
     };
 
-    // function post() {                    заготовка под 404 , если пользователь не найден
-    // async() => {await fetch(`https://localhost:3000/profile/${id}`).then(res => res.json());}
-    // }
-    // post()
-    // if (!post){ 
-    //     console.log('123')           
-    //     return notFound();
-    // }
     return (
         <div className="h-full bg-[rgb(var(--blackbrown))] rounded-[9px] relative overflow-visible">
             <div 
@@ -119,18 +126,20 @@ export const ProfileCover: React.FC<ProfileInfoProps> = (props) => {
                 <div className='flex'>
                     <p className='text-[2rem] mb-[0.3em]'>{isUserAcc? (userData?.display_name != undefined ? userData?.display_name : user?.email!.split("@")[0]) : (userDataByUID?.display_name != undefined ? userDataByUID?.display_name : userDataByUID?.email!.split("@")[0])}</p>
                 </div>
-                <p className='text-[1.2rem] opacity-50'>c {ProfileInfoData.ProfileRegDate}</p>
-                <div className='flex'>
+                <p className='text-[1.2rem] opacity-50'>c {formatDate(userDataByUID?.created_at ?? "")}</p>
+                {/* <div className='flex'>
                     <Link href={'/ProfileSubscribers'}>
                         <p className='text-[1.5rem] hover:underline'>{userData?.subscribers_count} подписчиков</p>
                     </Link>
                     <Link href={'/ProfileSubscriptions'}>
                         <p className='text-[1.5rem] ml-[0.8em] hover:underline mb-5'>{userData?.subscriptions_count} подписок</p>
                     </Link>
-                </div>
-                <ProfilePosts newsBlockData={NewsBlockData.newsBlocksData}/>
+                </div> до лучших времен, когда сделаем систему подписок*/} 
+                <ProfileFavoriteTracks/>
+                <ProfileFavoriteAlbums/>
+                {/* <ProfilePosts newsBlockData={NewsBlockData.newsBlocksData}/>
                 <ProfileReviews PopularReviewsData={PopularReviewsBlockData}/>
-                <ProfilePlaylists PopularPlaylistsData = {PopularPlaylistBlockData}/>
+                <ProfilePlaylists PopularPlaylistsData = {PopularPlaylistBlockData}/> */}
             </div>
         </div>
     );

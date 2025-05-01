@@ -5,7 +5,9 @@ import { Analytics } from "@vercel/analytics/react";
 import { Sidebar } from "~/components/sidebar/sidebar";
 import { AuthCheckerOnLayout } from "~/app/actions/authCheckerOnLayout";
 import { type Metadata } from "next";
-import { Providers } from './providers'; // 👈 импортируешь клиентский провайдер
+import { Providers } from './providers';
+import { Toaster } from "~/components/ui/shadcn/toaster";
+
 
 const ubuntu = Ubuntu({
   subsets: ['cyrillic'],
@@ -28,7 +30,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SpeedInsights />
         <Analytics />
         <Providers>
-          {children}
+            {children}
+          <Toaster />
         </Providers>
       </body>
     </html>

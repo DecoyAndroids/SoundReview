@@ -9,8 +9,7 @@ import { useAlbumPostRating} from "~/hooks/AlbumHooks/useAlbumPostRating"
 import { useAlbumAverageRating } from "~/hooks/AlbumHooks/useAlbumAverageRating"
 import { useAlbumUserRating } from "~/hooks/AlbumHooks/useAlbumUserRating"
 import { useAlbumUpdateRating } from "~/hooks/AlbumHooks/useAlbumUpdateRating"
-import { useRouter } from 'next/navigation'
-import { RateWindowProps } from "~/app/types/propsTypes.module"
+import {type RateWindowProps } from "~/app/types/propsTypes.module"
 import { AlbumDataMiniBlock } from "./AlbumDataMiniBlock"
 
 export const getColor = (value: number): string => {
@@ -31,14 +30,13 @@ export function getWordForm(value: number, wordForms: [string, string, string]):
   }
 
 export const RateWindow:React.FC<RateWindowProps> = (props) => {
-    const{SpotiHref} = {...props}
+    const{SpotiHref, albumData} = {...props}
     const [rateWindowState, setRateWindowState] = useState({
         isRateWindow : false,
         inAccNotice: false,
         actualRate : [50],
     })
     const { id } = useParams();
-    const router = useRouter()
     const user = useAuthStore((state) => state.user);
     const inAcc = user?.id ? true : false
     const albumId = Array.isArray(id) ? id[0] : id ?? '';
@@ -48,7 +46,7 @@ export const RateWindow:React.FC<RateWindowProps> = (props) => {
     const averageRatingQuery = useAlbumAverageRating(albumIdSafe);
     const userRatingQuery = useAlbumUserRating(albumIdSafe, userIdSafe, {enabled: !!albumIdSafe && !!userIdSafe,}); 
 
-    const { mutate: postRating, isPending } = useAlbumPostRating()
+    const { mutate: postRating } = useAlbumPostRating()
     const { mutate: updateRating} = useAlbumUpdateRating()
     
     const changeRateWindowState = () => {
@@ -134,7 +132,7 @@ export const RateWindow:React.FC<RateWindowProps> = (props) => {
                                 </div>
                         :<></>}
                         </div>
-                        <AlbumDataMiniBlock/>
+                        <AlbumDataMiniBlock AlbumData={albumData}/>
                     </div>
                     <div>
                         <Link className="bg-[rgb(var(--gray))] p-2 rounded-lg hover:bg-[rgb(var(--spotify))] transform duration-300" href={SpotiHref ?? ''}>Spotify</Link>
@@ -170,7 +168,7 @@ export const RateWindow:React.FC<RateWindowProps> = (props) => {
                                 <p className="h-fit p-2 m-auto">Чтобы поставить оценку альбому, нужно создать аккаунт или войти в него</p>
                                 <div className="flex m-auto gap-5">
                                     <Link href='/login' className="bg-[rgb(var(--anthracitegrey))] p-2 px-5 rounded-lg hover:bg-[rgb(var(--sub))] transform duration-300">Войти</Link>
-                                    <Link href='/signp' className="bg-[rgb(var(--anthracitegrey))] p-2 px-5 rounded-lg hover:bg-[rgb(var(--sub))] transform duration-300">Создать</Link>
+                                    <Link href='/signup' className="bg-[rgb(var(--anthracitegrey))] p-2 px-5 rounded-lg hover:bg-[rgb(var(--sub))] transform duration-300">Создать</Link>
                                 </div>
                                 <button className="absolute bottom-0 right-0 hover:bg-[rgb(var(--sub))] p-1 m-1 mt-0" onClick={changeRateWindowState}>свернуть</button> 
                             </div>)}

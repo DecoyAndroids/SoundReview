@@ -45,6 +45,9 @@ export default {
                     ...fontFamily.sans
                 ]
   		},
+		  screens: {
+
+		  },
   		colors: {
 			grey: 'rgb(var(--gray) / <alpha-value>)',
   			blackamber: 'rgb(var(--blackamber) / <alpha-value>)',

@@ -20,7 +20,7 @@ export function useAlbumAverageRating(albumId: string) {
             : 0
 
         return {
-            average: Number(avg.toFixed(2)),
+            average: Number(avg.toFixed(0)),
             totalVotes: ratings.length,
         }
     },

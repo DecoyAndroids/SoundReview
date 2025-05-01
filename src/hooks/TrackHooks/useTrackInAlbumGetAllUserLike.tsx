@@ -1,17 +1,17 @@
 import { useQuery } from '@tanstack/react-query'
-
 import { supabase } from '~/lib/supabaseClient';
 
 
-export function useTrackInAlbumUserLike(albumId: string,userId:string, options?: { enabled?: boolean }) {
+export function useTrackInAlbumGetAllUserLike(userId:string, options?: { enabled?: boolean }) {
   return useQuery({
-    queryKey: ['TrackInAlbumUserLike', albumId],
+    queryKey: ['TrackInAlbumGetAllUserLike', userId],
     queryFn: async () => {
         const { data, error } = await supabase
             .from('Track_likes')
-            .select('track_id, is_liked')
-            .eq('album_id', albumId)
+            .select('track_id, is_liked, album_id, track_name, authors, duration_ms, album_cover_url')
             .eq('user_id', userId)
+            .eq('is_liked', true)
+            .order("updated_at", { ascending: false })
         if (error) throw error
         return data
     },
