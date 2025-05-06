@@ -1,5 +1,4 @@
 import Image from "next/image";
-import type { StaticImageData } from "next/image";
 import styles from './PopularPlaylist.module.scss'
 import LikeIcon from "../../../../../public/generalIcons/Like.png"; 
 import type { PopularPlaylistProps } from "~/app/types/propsTypes.module";

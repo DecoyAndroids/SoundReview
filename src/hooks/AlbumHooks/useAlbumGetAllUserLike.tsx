@@ -1,6 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
 import { supabase } from '~/lib/supabaseClient';
 
+interface AlbumData {
+  is_liked: boolean;
+  album_id: string;
+  authors: string[];
+  album_cover_url: string;
+  album_name: string;
+}
 
 export function useAlbumGetAllUserLike(userId:string, options?: { enabled?: boolean }) {
   return useQuery({
@@ -13,7 +20,7 @@ export function useAlbumGetAllUserLike(userId:string, options?: { enabled?: bool
             .eq('is_liked', true)
             .order("updated_at", { ascending: false })
         if (error) throw error
-        return data
+        return data as AlbumData[]
     },
     enabled: options?.enabled ?? true,
   })

@@ -18,7 +18,6 @@ export const FavAlbumsList:React.FC = ()=>{
 
 
     const user = useAuthStore((state) => state.user);
-    const userData = useAuthStore((state)=>state.userData)
     
     const isUserAcc = user?.id == id ? true : false
     const userId = Array.isArray(id) ? id[0] : id ?? '';
@@ -48,9 +47,9 @@ export const FavAlbumsList:React.FC = ()=>{
             </div>
             {!LikedAlbums.isFetching ? 
                 <div>
-                    {LikedAlbums.data?.length! > 0 ? 
+                    {(LikedAlbums.data?.length ?? 0) > 0 ? 
                         <div className="grid grid-flow-row sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mx-10  gap-3 gap-y-5">
-                            {LikedAlbums.data?.map((album, i)=>(
+                            {LikedAlbums.data?.map((album)=>(
                                 <div key={album.album_id} className="m-auto">
                                     <div className="relative">
                                         <Image src={album.album_cover_url} priority={true} width={200} height={200} quality={90} placeholder="blur" blurDataURL='/api/placeholder' alt='ALBUM COVER' className="w-[15rem] h-fit rounded-sm "/>
@@ -58,8 +57,8 @@ export const FavAlbumsList:React.FC = ()=>{
                                                 <div className="absolute bottom-0 right-0 z-10 w-full h-full bg-[rgb(var(--blackbrown))] opacity-0 hover:opacity-60 duration-300" >                                                
                                                     {isUserAcc &&
                                                         <button className=" h-fit w-fit" onClick={(e)=>{
-                                                            handleClick(album.album_id, !album.is_liked)
-                                                            let letter = `Альбом "${album.album_name}"  ${!album.is_liked ? 'добавлен в любимые' : 'убран из любимых'}`
+                                                            void handleClick(album.album_id, !album.is_liked)
+                                                            const letter = `Альбом "${album.album_name}"  ${!album.is_liked ? 'добавлен в любимые' : 'убран из любимых'}`
                                                             toast({description: letter})
                                                             e.preventDefault()
                                                             e.stopPropagation()}}>

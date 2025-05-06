@@ -2,10 +2,8 @@
 
 import Avatar from '~/public/userAvatar.jpg';
 import { useState } from 'react';
-import Like from "~/public/popularReviews/Like.png";
-import Comment from "~/public/popularReviews/comment.png";
 import type { PopularReviewsProps } from "~/app/types/propsTypes.module";
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '~/components/ui/button';
 import { Separator } from '~/components/ui/separator';
@@ -16,8 +14,6 @@ export const ProfileReviews: React.FC<PopularReviewsProps> = (props) => {
     const { PopularReviewsData } = props;
     const [showAll, setShowAll] = useState(false);
     const displayedPosts = showAll ? PopularReviewsData : PopularReviewsData.slice(0, 4);
-    const LikeIcon: StaticImageData = Like;
-    const CommentIcon: StaticImageData = Comment;
 
     const getColor = (value: number): string => {
         const clampedValue = Math.min(100, Math.max(0, value));

@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Button } from '~/components/ui/button';
 import { Separator } from '~/components/ui/separator';
 import styles from './profilePlaylists.module.scss'
-import { useAuthStore } from '~/store/authStore';
+
 
 export const ProfilePlaylists: React.FC<PopularPlaylistsProps> = props => {
     const { PopularPlaylistsData } = { ...props };

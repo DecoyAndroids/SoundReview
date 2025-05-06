@@ -18,7 +18,6 @@ export const ProfileFavoriteTracks = ()=>{
     const updateLike = useTrackInAlbumUpdateUserLike()
 
     const user = useAuthStore((state) => state.user);
-    const userData = useAuthStore((state)=>state.userData)
 
     const isUserAcc = user?.id == id ? true : false
 
@@ -49,9 +48,9 @@ export const ProfileFavoriteTracks = ()=>{
             <Separator className={`mb-5 ml-0 w-[calc(100%)] bg-[rgb(var(--sub))]`} />
             {!LikedTracks.isFetching ? 
                 <div>
-                    {LikedTracks.data?.length! > 0 ? 
+                    {(LikedTracks.data?.length ?? 0) > 0 ? 
                         <div className="grid grid-flow-col grid-rows-4  w-full gap-3 gap-y-0 ">
-                            {LikedTracks.data?.slice(0,8).map((track, i)=>(
+                            {LikedTracks.data?.slice(0,8).map((track)=>(
                                 <Link href={`/album/${track.album_id}`} key={track.track_id}>
                                     <div  className="flex gap-4 hover:bg-[rgb(var(--blackamber))] p-2 rounded-lg w-full transition-colors duration-300 delay-50">
                                         <Image src={track.album_cover_url} priority={true} width={120} height={120} placeholder="blur" blurDataURL='/api/placeholder' alt='ALBUM COVER' className="w-[3rem] h-[3rem] rounded-sm"/>
@@ -63,8 +62,8 @@ export const ProfileFavoriteTracks = ()=>{
                                             <button 
                                                 className="ml-auto my-auto h-fit mr-[1rem]" 
                                                 onClick={(e)=>{
-                                                    handleClick(track.album_id,track.track_id, track.is_liked)
-                                                    let letter = `Трек ${track.track_name.length > 15 ? track.track_name.slice(0,15)+'...' : track.track_name} ${LikedTracks.data?.some(like => like.track_id == track.track_id) ? (!LikedTracks.data?.find(item => item.track_id === track.track_id)?.is_liked ? 'добавлен в любимые' : 'удален из либимого') : 'добавлен в любимые'}`
+                                                    void handleClick(track.album_id,track.track_id, track.is_liked)
+                                                    const letter = `Трек ${track.track_name.length > 15 ? track.track_name.slice(0,15)+'...' : track.track_name} ${LikedTracks.data?.some(like => like.track_id == track.track_id) ? (!LikedTracks.data?.find(item => item.track_id === track.track_id)?.is_liked ? 'добавлен в любимые' : 'удален из либимого') : 'добавлен в любимые'}`
                                                     toast({description: letter})
                                                     e.preventDefault()
                                                     

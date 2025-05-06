@@ -3,7 +3,6 @@ import LikeSrc from "~/public/generalIcons/Like.png"
 import FillLikeSrc from "~/public/generalIcons/LikeFill.png"
 import ArrowSrc from '~/public/generalIcons/ChatGPT Image 12 апр. 2025 г., 11_55_43.png'
 import { Separator } from "~/components/ui/separator"
-import { useTrackInAlbumGetAllUserLike } from "~/hooks/TrackHooks/useTrackInAlbumGetAllUserLike"
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useToast } from "~/hooks/Shadcn/use-toast";
@@ -20,7 +19,6 @@ export const ProfileFavoriteAlbums = ()=>{
 
 
     const user = useAuthStore((state) => state.user);
-    const userData = useAuthStore((state)=>state.userData)
     
     const isUserAcc = user?.id == id ? true : false
     const userId = Array.isArray(id) ? id[0] : id ?? '';
@@ -50,9 +48,9 @@ export const ProfileFavoriteAlbums = ()=>{
             <Separator className={`mb-5 ml-0 w-[calc(100%)] bg-[rgb(var(--sub))]`} />
             {!LikedAlbums.isFetching ? 
                 <div className="mb-5">
-                    {LikedAlbums.data?.length! > 0 ? 
+                    {(LikedAlbums.data?.length ?? 0) > 0 ?
                         <div className="grid grid-flow-row sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-y-5">
-                            {LikedAlbums.data?.slice(0,5).map((album, i)=>(
+                            {LikedAlbums.data?.slice(0,5).map((album)=>(
                                 <div key={album.album_id} className="m-auto">
                                     <div className="relative">
                                         <Image src={album.album_cover_url} priority={true} width={200} height={200} quality={90} placeholder="blur" blurDataURL='/api/placeholder' alt='ALBUM COVER' className="w-[15rem] h-fit rounded-sm "/>
@@ -60,8 +58,8 @@ export const ProfileFavoriteAlbums = ()=>{
                                                 <div className="absolute bottom-0 right-0 z-10 w-full h-full bg-[rgb(var(--blackbrown))] opacity-0 hover:opacity-60 duration-300" >                                                
                                                     {isUserAcc &&
                                                         <button className=" h-fit w-fit" onClick={(e)=>{
-                                                            handleClick(album.album_id, !album.is_liked)
-                                                            let letter = `Альбом "${album.album_name}"  ${!album.is_liked ? 'добавлен в любимые' : 'убран из любимых'}`
+                                                            void handleClick(album.album_id, !album.is_liked)
+                                                            const letter = `Альбом "${album.album_name}"  ${!album.is_liked ? 'добавлен в любимые' : 'убран из любимых'}`
                                                             toast({description: letter})
                                                             e.preventDefault()
                                                             e.stopPropagation()}}>

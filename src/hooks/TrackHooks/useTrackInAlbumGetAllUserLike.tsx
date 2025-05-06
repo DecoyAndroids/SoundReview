@@ -1,6 +1,15 @@
 import { useQuery } from '@tanstack/react-query'
 import { supabase } from '~/lib/supabaseClient';
 
+interface TracksData{
+  track_id: string;
+  is_liked: boolean;
+  album_id: string;
+  track_name: string;
+  authors: string[];
+  duration_ms: number;
+  album_cover_url: string;
+}
 
 export function useTrackInAlbumGetAllUserLike(userId:string, options?: { enabled?: boolean }) {
   return useQuery({
@@ -13,7 +22,7 @@ export function useTrackInAlbumGetAllUserLike(userId:string, options?: { enabled
             .eq('is_liked', true)
             .order("updated_at", { ascending: false })
         if (error) throw error
-        return data
+        return data as TracksData[]
     },
     enabled: options?.enabled ?? true,
   })
