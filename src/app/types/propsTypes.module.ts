@@ -284,3 +284,10 @@ export type Track = {
     duration_ms: number;
     updated_from_profile: boolean;
   };
+
+export type CreateArticleDataResponse = {
+    id: string;
+    user_id: string;
+    article_name: string;
+    article_text: string;
+  };
