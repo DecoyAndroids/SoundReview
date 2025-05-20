@@ -7,13 +7,7 @@ export interface UserData {
   UID: string;  
   display_name: string;  
   email: string;
-  subscriptions: string[];
-  subscriptions_count: number;
-  subscribers: string[];
-  subscribers_count: number;
-  articles: string[];
-  reviews: string[];
-  playlists: string[];
+  created_at:string;
 }
 
 export async function getUserDataByUID(UID: string): Promise<UserData | null> {  

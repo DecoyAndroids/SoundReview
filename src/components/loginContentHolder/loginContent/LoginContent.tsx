@@ -32,8 +32,8 @@ export const LoginContent:React.FC = () =>{
         <div className="bg-[rgb(var(--blackbrown))] p-7 rounded-[9px] gap-1 flex flex-col grow">   
             <p className="m-auto">Войти</p>
             <form className="flex flex-col gap-3" onSubmit={OnSubmit}> 
-                <input onChange={onChange} className="p-2 px-4 bg-[rgb(var(--blackamber))]" placeholder="email" name='email' value={loginForm.email}/>
-                <input onChange={onChange} className="p-2 px-4 bg-[rgb(var(--blackamber))]" placeholder="password" name='password' value={loginForm.password}/>
+                <input onChange={onChange} className="p-2 px-4 bg-[rgb(var(--blackamber))] rounded-lg" placeholder="email" name='email' value={loginForm.email}/>
+                <input onChange={onChange} className="p-2 px-4 bg-[rgb(var(--blackamber))] rounded-lg   q" placeholder="password" name='password' value={loginForm.password}/>
                 <button className="bg-[rgb(var(--gray))] p-2">Войти</button>
                 {loginError && <p className="text-[rgb(var(--red))] text-[0.9rem] h-fit">Пожалуйста, проверьте свой пароль и почту и попробуйте снова.</p>}
             </form>

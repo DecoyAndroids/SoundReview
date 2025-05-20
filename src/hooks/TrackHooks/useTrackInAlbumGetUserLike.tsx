@@ -3,9 +3,9 @@ import { useQuery } from '@tanstack/react-query'
 import { supabase } from '~/lib/supabaseClient';
 
 
-export function useTrackInAlbumUserLike(albumId: string,userId:string, options?: { enabled?: boolean }) {
+export function useTrackInAlbumGetUserLike(albumId: string,userId:string, options?: { enabled?: boolean }) {
   return useQuery({
-    queryKey: ['TrackInAlbumUserLike', albumId],
+    queryKey: ['TrackInAlbumGetUserLike', albumId],
     queryFn: async () => {
         const { data, error } = await supabase
             .from('Track_likes')

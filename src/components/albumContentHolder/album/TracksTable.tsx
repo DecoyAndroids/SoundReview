@@ -1,18 +1,18 @@
-import { TracksTableProps } from "~/app/types/propsTypes.module"
+import {type TracksTableProps } from "~/app/types/propsTypes.module"
 import Image from "next/image"
 import LikeSrc from "~/public/generalIcons/Like.png"
+import FillLikeSrc from "~/public/generalIcons/LikeFill.png"
 import { useTrackInAlbumPostLike } from "~/hooks/TrackHooks/useTrackInAlbumPostUserLike"
 import { useAuthStore } from "~/store/authStore"
 import { useParams } from "next/navigation"
-import { useTrackInAlbumUserLike } from "~/hooks/TrackHooks/useTrackInAlbumUserLike"
-import { useQueryClient } from "@tanstack/react-query"
+import { useTrackInAlbumGetUserLike } from "~/hooks/TrackHooks/useTrackInAlbumGetUserLike"
 import { useTrackInAlbumUpdateUserLike } from "~/hooks/TrackHooks/useTrackInAlbumUpdateUserLike"
+import { useToast } from "~/hooks/Shadcn/use-toast"
 
 export const TracksTable:React.FC<TracksTableProps> = (props)=>{
     const {AlbumData} = {...props}
     const postLike = useTrackInAlbumPostLike()
     const updateLike = useTrackInAlbumUpdateUserLike()
-    const queryClient = useQueryClient();
     const { id } = useParams();
     
     const user = useAuthStore((state) => state.user);
@@ -21,40 +21,35 @@ export const TracksTable:React.FC<TracksTableProps> = (props)=>{
     const albumIdSafe = albumId ?? '';
     const userIdSafe = user?.id ?? '';
 
-    const LikedTracks = useTrackInAlbumUserLike(albumIdSafe, userIdSafe, {enabled: !!albumIdSafe && !!userIdSafe,})
+    const { toast } = useToast()
+    
+    
 
-    const HandlePostLike = async (trackId : string) =>{
+    const LikedTracks = useTrackInAlbumGetUserLike(albumIdSafe, userIdSafe, {enabled: !!albumIdSafe && !!userIdSafe,})
+
+    const HandlePostLike = async (trackId : string, trackName:string, trackDurationMs:number) =>{
         try {
             if(LikedTracks.data?.some(like => like.track_id == trackId)){
                 const likedTrack = LikedTracks.data?.find(item => item.track_id === trackId)
-                await updateLike.mutateAsync({albumId:albumIdSafe, trackId: trackId, userId:userIdSafe, isLiked: !likedTrack?.is_liked})
-                await queryClient.invalidateQueries({queryKey: ['TrackInAlbumUserLike', albumId],});
+                await updateLike.mutateAsync({albumId:albumIdSafe, trackId: trackId, userId:userIdSafe, isLiked: !likedTrack?.is_liked, updateTime:true})
+
+                
+                    const index = LikedTracks.data?.findIndex(t => t.track_id === trackId)
+                    if (typeof index == 'number'){
+                        if (LikedTracks.data?.[index]) {
+                            LikedTracks.data[index].is_liked = !LikedTracks.data[index].is_liked;
+                          }   
+                    }
+                
             }else{
-                await postLike.mutateAsync({albumId:albumIdSafe, trackId: trackId, userId:userIdSafe, isLiked: true})
-                await queryClient.invalidateQueries({queryKey: ['TrackInAlbumUserLike', albumId],});
+                await postLike.mutateAsync({albumId:albumIdSafe, trackId: trackId, userId:userIdSafe, isLiked: true, trackName:trackName, authors:AlbumData.artists.map((artist)=>(artist.name)), duration_ms:trackDurationMs, albumCoverSrc:AlbumData.images[0]?.url ?? ''})
+                    LikedTracks.data?.push({track_id:trackId, is_liked:true})
             }
         }catch (error) {
             console.error('Ошибка при лайке:', error)
         }
         
     }
-
-    // const HandleClickPostLike = async () => {
-    //     try {
-    //         if (userLikeQuery.data?.LikeRow === true) {
-    //             await updateLike.mutateAsync({ albumId: albumIdSafe, userId: userIdSafe, isLiked: !userLikeQuery.data?.isLiked,})
-    //             queryClient.invalidateQueries({queryKey: ['albumCountLikes', albumId],});
-    //             queryClient.invalidateQueries({queryKey: ['albumUserLike', albumId],});
-    //         } else {
-    //             await postLike.mutateAsync({ albumId: albumIdSafe, userId: userIdSafe, isLiked: true,})
-    //             queryClient.invalidateQueries({queryKey: ['albumCountLikes', albumId],});
-    //             queryClient.invalidateQueries({queryKey: ['albumUserLike', albumId],});
-    //         }
-    //     } catch (error) {
-    //         console.error('Ошибка при лайке:', error)
-    //     }
-    //   }
-
     return(
         <div className="max-h-[25rem] mb-[2rem] scroll-smooth overflow-y-auto scrollbar scrollbar-thin scrollbar-thumb-[rgb(var(--sub))] scrollbar-track-[rgb(var(--blackbrown))]">
                 <table className="border-collapse">
@@ -84,21 +79,27 @@ export const TracksTable:React.FC<TracksTableProps> = (props)=>{
                                             </div>
                                             <div className="ml-auto">
                                                 <div className="mt-[0.7rem]" >
-                                                    <button className="" onClick={()=>(HandlePostLike(track.id))}>
-                                                        <Image src={LikeSrc} 
+                                                    <button className="" 
+                                                            onClick={()=>{
+                                                                void HandlePostLike(track.id, track.name, track.duration_ms)
+                                                                
+                                                                const letter = `Трек ${track.name.length > 15 ? track.name.slice(0,15)+'...' : track.name} ${LikedTracks.data?.some(like => like.track_id == track.id) ? (!LikedTracks.data?.find(item => item.track_id === track.id)?.is_liked ? 'добавлен в любимые' : 'удален из либимого') : 'добавлен в любимые'}`
+                                                                toast({
+                                                                    
+                                                                    description: letter
+                                                                  })
+                                                            }}>
+                                                        <Image src={
+                                                            Array.isArray(LikedTracks.data) &&
+                                                            LikedTracks.data?.some(
+                                                                like => like.track_id == track.id && like.is_liked == true
+                                                            ) ? FillLikeSrc
+                                                            : LikeSrc
+                                                            } 
                                                             alt='arrow down' 
                                                             width={20} 
                                                             height={20}  
                                                             className=" h-fit"
-                                                            style={
-                                                                Array.isArray(LikedTracks.data) &&
-                                                                LikedTracks.data?.some(
-                                                                    like => like.track_id == track.id && like.is_liked == true
-                                                                ) ? 
-                                                                { filter: 'invert(40%) sepia(100%) saturate(2000%) hue-rotate(-40deg)' }
-                                                                : 
-                                                                {}
-                                                                } 
                                                             />
                                                     </button>
                                                 </div>

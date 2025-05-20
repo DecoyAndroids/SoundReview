@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '~/components/ui/carousel';
 import type { newsBlockProps } from '~/app/types/propsTypes.module';
 import Image from 'next/image';
-import styles from './newsBlock.module.scss';
 
 export const NewsBlock: React.FC<newsBlockProps> = ({ newsBlockData = [] }) => {
     return (

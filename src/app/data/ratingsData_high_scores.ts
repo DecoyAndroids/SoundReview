@@ -1,4 +1,3 @@
-import type { RatingsDataType } from "~/app/types/propsTypes.module";
 export const RatingsData = [
   {
     "id": 1,
