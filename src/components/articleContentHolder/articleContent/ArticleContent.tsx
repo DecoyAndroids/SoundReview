@@ -1,123 +1,148 @@
-'use client'
-import Image from "next/image"
-import Link from "next/link"
-import { useState } from "react"
+'use client';
+import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
 import Like from '~/public/popularReviews/Like.png';
-import Comment from '~/public/popularReviews/comment.png';
-import articleCover from "~/public/popularArticles/Lamar.jpg"
-import avatar from "~/public/popularArticles/avatar1.jpg"
-import { useAuthStore } from '~/store/authStore';
+import avatar from '~/public/popularArticles/avatar1.jpg';
 import Avatar2 from '~/public/userAvatar.jpg';
-import { Separator } from "~/components/ui/separator";
+import { useAuthStore } from '~/store/authStore';
+import { useParams } from 'next/navigation';
+import { NewArticlesData } from '~/app/data/newArticleData';
 
 export const Article: React.FC = () => {
-    const user = useAuthStore((state) => state.user);
+    const user = useAuthStore(state => state.user);
+    const { id } = useParams();
+    const Id = Number(id) - 1;
+
     const [isLiked, setIsLiked] = useState(false);
-    const [likeCount, setLikeCount] = useState(999);
-    const [commentWindow, setCommentWindow] = useState(false)
+    const [likeCount, setLikeCount] = useState(NewArticlesData[Id]!.LikeCount);
     const [commentForm, setCommentForm] = useState({
-        textComment : '',
-        actualComments: ['Это было круто и неожиданно']
-    })
+        textComment: '',
+        actualComments: ['Это было круто и неожиданно'],
+    });
 
     const handleLikeClick = () => {
         const newLikeStatus = !isLiked;
         setIsLiked(newLikeStatus);
-        const newLikeCount = newLikeStatus ? likeCount + 1 : likeCount - 1;
-        setLikeCount(newLikeCount);
+        setLikeCount(prev => newLikeStatus ? prev + 1 : prev - 1);
         localStorage.setItem(`liked_PopularArticles`, newLikeStatus.toString());
-        localStorage.setItem(`likeCount_PopularArticles`, newLikeCount.toString());
+        localStorage.setItem(`likeCount_PopularArticles`, likeCount.toString());
     };
-    const likeIconStyle = isLiked ? { filter: 'invert(40%) sepia(100%) saturate(2000%) hue-rotate(-40deg)' } : {};
 
-    const onChange = (e:  React.ChangeEvent<HTMLInputElement>) => {
-        const {name,value} = e.target
-        setCommentForm({...commentForm, [name]:value})
-    }
+    const likeIconStyle = isLiked
+        ? { filter: 'invert(40%) sepia(100%) saturate(2000%) hue-rotate(-40deg)' }
+        : {};
 
-    const OnSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        const comments = commentForm.actualComments
-        if (commentForm.textComment){
-        comments.push(commentForm.textComment)
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setCommentForm({ ...commentForm, [name]: value });
+    };
+
+    const OnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (commentForm.textComment) {
+            setCommentForm(prev => ({
+                actualComments: [...prev.actualComments, prev.textComment],
+                textComment: '',
+            }));
         }
+    };
 
-        setCommentForm({
-            actualComments : comments, 
-            textComment : ''
-        })
-        console.log(commentForm.actualComments)
-     }
-    const inAcc = user?.id ? true : false 
+    const inAcc = !!user?.id;
+
     return (
-        <div className="mx-10 grow">
-            <Image src={articleCover} alt='articleCover' className="w-full m-auto mt-2 h-[20rem] brightness-60 rounded-lg object-cover"/>
-            <div className=''>
-                <h3 className='mb-[2.1rem] text-[3rem] w-fit font-500'>Как черная музыка изменила мир?</h3>
-                <Separator className="bg-[rgb(var(--sub))] h-[0.1rem] rounded-lg"/>
-                <Link href={'/userProfile'} className=' mt-5 flex items-center gap-3'>
-                            <Image src={avatar} alt='Author' width={48} height={48} className='rounded-full' />
-                            <span className='text-[1.4rem] font-[300] p-1.5 pl-0 hover:underline'>Евгений Горошин</span>
-                </Link>
-            </div>
-            <div className="w-full">
-                <p className='h-fit w-[90%] m-auto text-[2rem] font-400'>
-                        Чёрная музыка – это не просто набор жанров и стилей, а мощный культурный феномен, который
-                        кардинально изменил мир. Её влияние выходит далеко за рамки музыкальной индустрии, затрагивая
-                        общество, политику, искусство, моду и даже технологии. От духовных песнопений африканских рабов
-                        в Америке до всемирного господства хип-хопа и R&B – чёрная музыка прошла долгий путь, став
-                        символом борьбы за права
-                    </p>
-            </div>
-            <div className='text-sm ml-auto w-[90%] m-auto mt-1 flex items-center gap-2 text-gray-400'>
-                <span
-                    onClick={handleLikeClick}
-                    className='transform cursor-pointer transition-transform duration-200 hover:scale-110'
-                >
-                    <Image alt='like icon' src={Like} width={20} height={20} style={likeIconStyle} />
-                </span>
-                    {likeCount}
+        <div className="flex flex-col items-center px-4 py-6">
+            <div className="w-full max-w-[100%] h-fit rounded-xl bg-[rgb(var(--gray))] p-6 shadow-xl">
+                <div className="flex flex-col h-fit md:flex-row gap-6">
+                    <div className="w-full md:w-[450px] aspect-[3/2] overflow-hidden rounded-lg">
+                        <Image
+                            src={NewArticlesData[Id]!.articleCover}
+                            alt="Обложка статьи"
+                            width={450}
+                            height={300}
+                            quality={90}
+                            className="w-full h-full object-cover"
+                        />
+                    </div>
 
-                <span className='transform cursor-pointer transition-transform duration-200 hover:scale-110' onClick={()=>{setCommentWindow(!commentWindow)}}>
-                        <Image alt='comment icon' src={Comment} width={18} height={18} />
-                </span>
-                    {23}
-                    <span className='text-sm p-1.5 pr-0'>1 февраля</span>
-                </div>
-                {commentWindow ? 
-                <div className="w-[90%] m-auto">
-                    <form className="flex gap-1" onSubmit={OnSubmit}>
-                    <input placeholder="Напишите свой комментарий" className=' bg-[rgb(var(--anthracitegrey))] p-1 pl-2 outline-none rounded-lg w-full' onChange={onChange} name='textComment' value={commentForm.textComment}/>
-                    <button className='m-0 bg-[rgb(var(--anthracitegrey))] p-1 pl-2 pr-2 outline-none rounded-lg w-fit transition-transform duration-300 hover:bg-[rgb(var(--gray))]' disabled={!inAcc}>Отправить</button>
-                    </form>
-                    {commentForm.actualComments.length > 0 ? 
-                <div className="mt-1 m-auto flex flex-col gap-3 mb-3">
-                    {commentForm.actualComments.map((comment,i)=>(
-                        
-                        <div key={i} className=" bg-[rgb(var(--anthracitegrey))]  rounded-lg p-1 h-fit ">
-                            {i == 0 ? 
-                            <div>
-                                <Link href={'/userProfile'} className=' ml-3 flex items-center gap-3'>
-                                    <Image src={avatar} alt='Author' width={24} height={24} className='rounded-full' />
-                                    <span className='text-[1.1rem] font-[300] p-1.5 pl-0 hover:underline'>Евгений Горошин</span>
+                    <div className="flex flex-col justify-between w-full">
+                        <div>
+                            <h1 className="text-[3rem] h-fit font-semibold text-white font-600">
+                                {NewArticlesData[Id]?.title}
+                            </h1>
+                            <div className="flex items-center gap-3 text-gray-400 mb-4 mt-2">
+                                <Link href='/profile' className='flex '>
+                                <Image
+                                    src={NewArticlesData[Id]!.authorCover}
+                                    alt="Автор"
+                                    width={48}
+                                    height={48}
+                                    quality={90}
+                                    className="rounded-full"
+                                />
+                                <span className="text-[1.5rem] p-2 hover:underline">{NewArticlesData[Id]?.author}</span>
                                 </Link>
-                                <p className=" ml-3">{comment}</p>
                             </div>
-                            :
-                            <div>
-                                <Link href={'/userProfile'} className=' ml-3 flex items-center gap-3'>
-                                    <Image src={Avatar2} alt='Author' width={24} height={24} className='rounded-full' />
-                                    <span className='text-[1.1rem] font-[300] p-1.5 pl-0 hover:underline'>{user?.email!.split("@")[0]}</span>
-                                </Link>
-                            <p className=" ml-3">{comment}</p>
-                            </div>}
+                            <p className="text-[1.5rem] text-white whitespace-pre-line h-fit ">
+                                {NewArticlesData[Id]?.ArticleText}
+                            </p>
                         </div>
-                    ))}
+
+                        <div className="mt-4 flex items-center gap-3 text-white text-lg">
+                            <span onClick={handleLikeClick} className="cursor-pointer transition-transform hover:scale-110">
+                                <Image
+                                    src={Like}
+                                    alt="Like"
+                                    width={32}
+                                    height={32}
+                                    quality={100}
+                                    style={likeIconStyle}
+                                />
+                            </span>
+                            <span className='text-[1.2rem]'>{likeCount}</span>
+                        </div>
+                    </div>
                 </div>
-                :<></>}
-                </div>
-                :<></>}
-                
+            </div>
+
+            {/* Комментарии */}
+            <div className="mt-6 w-full max-w-[100%]">
+                <form onSubmit={OnSubmit} className="flex items-center gap-2 mb-4">
+                    <input
+                        type="text"
+                        name="textComment"
+                        placeholder="Оставь комментарий"
+                        value={commentForm.textComment}
+                        onChange={onChange}
+                        className="w-full bg-[rgb(var(--gray))] text-white rounded-md p-2 outline-none border transition duration-300 border-[rgb(var(--gray))] hover:border-[rgba(var(--white),0.8)] focus:border-[rgba(var(--white),0.8)]"
+                    />
+                    <button
+                        type="submit"
+                        disabled={!inAcc}
+                        className="bg-[rgb(var(--blackamber))] hover:bg-[rgb(var(--cursedblack))] text-white px-4 py-2 rounded-md transition duration-300"
+                    >
+                        Отправить
+                    </button>
+                </form>
+
+                {commentForm.actualComments.map((comment, i) => (
+                    <div key={i} className="mb-3 rounded-lg bg-[rgb(var(--gray))] p-4">
+                        <div className="flex items-center gap-3 mb-1">
+                            <Image
+                                src={i === 0 ? avatar : Avatar2}
+                                alt="Аватар"
+                                width={32}
+                                height={32}
+                                className="rounded-full"
+                            />
+                            <span className="text-white font-medium">
+                                {i === 0 ? 'Евгений Горошин' : user?.email?.split('@')[0]}
+                            </span>
+                        </div>
+                        <p className="text-white">{comment}</p>
+                    </div>
+                ))}
+            </div>
         </div>
-    )
-}
+    );
+};
