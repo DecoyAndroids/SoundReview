@@ -13,7 +13,7 @@ const config = {
         spotifyClientSecret : process.env.spotifyClientSecret || 'spotifyClientSecret',
       },
     images: {
-      domains: ["i.scdn.co"], // Разрешает изображения с example.com
+      domains: ["i.scdn.co","nangrsdqlranxkijphem.supabase.co","data:image"], // Разрешает изображения с example.com
       },
 };
 

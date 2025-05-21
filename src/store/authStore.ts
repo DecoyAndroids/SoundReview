@@ -28,25 +28,24 @@ export const useAuthStore = create<AuthState>((set) => ({
   setSession: (session) => set({ session }),
   setUserData : (userData) => set({userData}),
 
-  // Проверяем авторизацию при старте
   checkAuth: async () => {
     const { data } = await supabase.auth.getSession();
-    const userId = data.session?.user?.id; // Безопасно извлекаем ID
+    const userId = data.session?.user?.id; 
     if (!userId) {
       throw new Error("User ID is undefined");
     }
     const userData: UserData | null = (await getUserDataByUID(userId)) ?? null;
     set({
-      user: data.session?.user ?? null, // ✅ Используем ?? вместо ||
-      session: data.session ?? null, // ✅ Используем ?? вместо ||
+      user: data.session?.user ?? null, 
+      session: data.session ?? null, 
       userData: userData ?? null,
     });
 
-    // Подписка на изменения авторизации
+
     supabase.auth.onAuthStateChange((_event, session) => {
       set({
-        user: session?.user ?? null, // ✅ Используем ?? вместо ||
-        session: session ?? null, // ✅ Используем ?? вместо ||
+        user: session?.user ?? null, 
+        session: session ?? null, 
         userData: userData ?? null,
       });
     });
@@ -55,7 +54,6 @@ export const useAuthStore = create<AuthState>((set) => ({
     
   },
 
-  // Логин с email и password
   login: async (email, password) => {
     const { data, error } = await supabase.auth.signInWithPassword({
       email,

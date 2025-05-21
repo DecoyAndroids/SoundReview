@@ -38,7 +38,7 @@ export const ProfileFavoriteAlbums = ()=>{
         }
     }
     return(
-        <div className="mr-[4em]">
+        <div className="mr-[4em] pb-2">
             <div className="flex">
                 <h2 className='font-bold w-fit text-32 hover:underline'>Любимые альбомы:</h2>
                 <Link href={`/profile/${userIdSafe}/favorite-albums`} className="-rotate-90 h-fit ml-auto mr-[0.3rem] my-auto transition-transform duration-300 hover:translate-x-2">

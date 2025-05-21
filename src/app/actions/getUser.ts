@@ -8,6 +8,8 @@ export interface UserData {
   display_name: string;  
   email: string;
   created_at:string;
+  banner_file_extension: string|null;
+  avatar_file_extension: string|null;
 }
 
 export async function getUserDataByUID(UID: string): Promise<UserData | null> {  
@@ -16,7 +18,6 @@ export async function getUserDataByUID(UID: string): Promise<UserData | null> {
     .select("*")
     .eq('UID', UID)
     .single<UserData>(); 
-
   if (error) {
     console.error("Ошибка запроса:", error.message);
     return null;

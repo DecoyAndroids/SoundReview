@@ -25,11 +25,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={ubuntu.variable}>
       <body className="font-ubuntu">
-        <Sidebar />
         <AuthCheckerOnLayout />
         <SpeedInsights />
         <Analytics />
         <Providers>
+            <Sidebar />
             {children}
           <Toaster />
         </Providers>

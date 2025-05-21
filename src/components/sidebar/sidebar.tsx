@@ -3,13 +3,23 @@ import Link from "next/link"
 import styles from "./sidebar.module.scss"
 import { Separator } from "../ui/separator"
 import Image from "next/image"
-import userAvatarSrc from '../../../public/userAvatar.jpg'
+import DefaultAvatar from '~/public/generalIcons/default_avatar.jpg'
 import { useAuthStore } from "~/store/authStore"
+import { useProfileGetProfileAvatar } from "~/hooks/ProfileHooks/useProfileGetProfileAvatar"
+import { useQueryClient } from '@tanstack/react-query';
+import { useState } from "react"
 
 
 export const  Sidebar = () => {
+    const queryClient = useQueryClient();
     const user = useAuthStore((state) => state.user);
     const userData = useAuthStore((state)=>state.userData)
+    const userIdSafe = userData?.UID ?? ""
+    const userAvatarUrl = useProfileGetProfileAvatar(userIdSafe, userData?.avatar_file_extension ?? '', {enabled: !!userIdSafe && !!userData?.avatar_file_extension})
+
+    const [userAvatarState, setUserAvatarState] = useState<{avatarUrlTime: number}>({
+        avatarUrlTime: Date.now()
+    })
     return(
         <div className={`flex flex-col ${styles.Sidebar}`}> 
   
@@ -38,7 +48,7 @@ export const  Sidebar = () => {
                 
         {user != null ?
         <Link href={`/profile/${user.id}`} className={`flex mt-auto p-2 ${styles.ProfileContainer}`}>
-            <Image src={userAvatarSrc} alt='Avatar' className={`${styles.Avatar}`} />
+            <Image src={(userData?.avatar_file_extension != null && userAvatarUrl.data?.publicUrl != undefined) ? `${userAvatarUrl.data?.publicUrl}?${userAvatarState.avatarUrlTime}` : DefaultAvatar} width={200} height={200} alt='Avatar' className={`${styles.Avatar}`} />
             <h4 className={`${styles.UserName} grow text-[1.3vw]`}>{userData?.display_name != undefined ? userData?.display_name : user?.email!.split("@")[0]}</h4>   
         </Link> 
         : 
