@@ -115,44 +115,7 @@ export type NewArticleData = {
     data: string;
     LikeCount: number;
     CommentCount: number;
-} 
-
-export type BestArticlesProps = {
-    BestArticlesData : BestArticleData[]
-}
-
-export type BestArticleProps = {
-    BestArticleData: BestArticleData,
-}
-
-export type BestArticleData = {
-    id: number;
-    articleCover: StaticImageData,
-    authorCover: StaticImageData,
-    title: string,
-    author: string,
-    data: string;
-    LikeCount: number;
-    CommentCount: number;
-} 
-
-export type IntArticlesProps = {
-    IntArticlesData : IntArticleData[]
-}
-
-export type IntArticleProps = {
-    IntArticleData: IntArticleData,
-}
-
-export type IntArticleData = {
-    id: number;
-    articleCover: StaticImageData,
-    authorCover: StaticImageData,
-    title: string,
-    author: string,
-    data: string;
-    LikeCount: number;
-    CommentCount: number;
+    ArticleText: string;
 } 
 
 export type RatingsDataType = {

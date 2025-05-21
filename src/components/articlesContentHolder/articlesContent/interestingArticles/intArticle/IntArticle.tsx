@@ -5,13 +5,13 @@ import Link from "next/link";
 import Like from "~/public/generalIcons/Like.png";
 import CommentIcon from "~/public/generalIcons/comment.png";
 import { useState } from "react";
-import type {IntArticleProps } from "~/app/types/propsTypes.module";
+import type { NewArticleProps } from "~/app/types/propsTypes.module";
 
 
-export const IntArticle: React.FC<IntArticleProps> = (props) => {
-    const { IntArticleData } = { ...props };
+export const IntArticle: React.FC<NewArticleProps> = (props) => {
+    const { NewArticleData } = { ...props };
     const [isLiked, setIsLiked] = useState(false);
-    const [likeCount, setLikeCount] = useState(IntArticleData.LikeCount);
+    const [likeCount, setLikeCount] = useState(NewArticleData.LikeCount);
 
     const handleLikeClick = () => {
         const newLikeStatus = !isLiked;
@@ -28,10 +28,10 @@ export const IntArticle: React.FC<IntArticleProps> = (props) => {
 
     return (
         <div className="w-[330px] bg-[rgb(var(--gray))] rounded-t-lg overflow-hidden shadow-lg">
-            <Link href={`/article/${IntArticleData.id}`}>
+            <Link href={`/article/${NewArticleData.id}`}>
                 <div className="relative w-full h-[200px] overflow-hidden group">
                     <Image
-                        src={IntArticleData.articleCover}
+                        src={NewArticleData.articleCover}
                         alt="Article cover"
                         className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
                     />
@@ -44,24 +44,24 @@ export const IntArticle: React.FC<IntArticleProps> = (props) => {
             <div className="p-4">
                 <div className="flex items-center gap-2">
                     <Image
-                        src={IntArticleData.authorCover}
+                        src={NewArticleData.authorCover}
                         alt="Author"
                         width={24}
                         height={24}
                         className="rounded-full aspect-square"
                     />
                     <Link href="/profile">
-                        <span className="text-sm text-gray-300">{IntArticleData.author}</span>
+                        <span className="text-sm text-gray-300">{NewArticleData.author}</span>
                     </Link>
                 </div>
-                <Link href={`/article/${IntArticleData.id}`}>
+                <Link href={`/article/${NewArticleData.id}`}>
                     <h3 className="text-white text-lg font-semibold mt-2 hover:underline">
-                        {IntArticleData.title}
+                        {NewArticleData.title}
                     </h3>
                 </Link>
 
                 <div className="flex items-center justify-between text-gray-400 text-sm mt-3">
-                    <span>{IntArticleData.data}</span>
+                    <span>{NewArticleData.data}</span>
                     <div className="flex items-center gap-3">
                             <span
                                 onClick={handleLikeClick}
@@ -73,7 +73,7 @@ export const IntArticle: React.FC<IntArticleProps> = (props) => {
                         <div className="flex items-center gap-1 mr-[-0.5rem] transform cursor-pointer transition-transform duration-200 hover:scale-110">
                             <Image src={CommentIcon} alt="Comments" width={18} height={18} />
                         </div>
-                        {IntArticleData.CommentCount}
+                        {NewArticleData.CommentCount}
                     </div>
                 </div>
             </div>

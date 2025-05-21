@@ -24,7 +24,6 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
         <Analytics/>
         {children}
       </body>
-      
     </html>
   );
 }
